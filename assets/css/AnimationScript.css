@@ -1,0 +1,48 @@
+        /* Container principal */
+        #hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* Estilo do texto animado */
+        #typing-text {
+            font-family: 'Audiowide', monospace;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+            min-height: 4rem;
+        }
+
+        /* Estilo do subtítulo */
+        #typing-subtitle {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            color: rgba(0, 255, 64, 0.521);
+            min-height: 2rem;
+            transition: opacity 0.5s;
+        }
+
+        /* Cursor piscante */
+        #typing-text::after,
+        #typing-subtitle::after {
+            content: "|";
+            animation: blink 1s infinite;
+            color: #00ffff;
+        }
+
+        /* Efeito de blink */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Estado inicial (hidden) */
+        .hidden {
+            opacity: 0;
+        }
+
+        /* Remove o cursor quando a animação termina */
+        #typing-text.complete::after,
+        #typing-subtitle.complete::after {
+            display: none;
+        }

@@ -1,14 +1,3 @@
-/* Estilos Globais */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #303031;
-    line-height: 1.6;
-    padding-bottom: 80px;
-}
-
-/* Header */
-
 header {
     display: flex;
     background-color: #19191a;
@@ -70,25 +59,4 @@ header h3 {
     background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
     box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5); /* Borda roxa sutil */
     transform: translateY(-2px); /* Efeito de levitação */
-}
-
-/*Section*/
-section{
-    padding: 0 32px 64px; /* 2rem = 32px, 4rem = 64px */
-}
-
-/*Footer*/
-footer {
-    background-color: #19191a;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    position: fixed;
-    bottom: 0;
-    left: 0; /* Garante alinhamento à esquerda */
-    right: 0; /* Garante alinhamento à direita */
-    width: 100%; /* Ocupa 100% da largura */
-    border-top: 1px solid #34495e;
-    margin: 0; /* Remove margens */
-    border-radius: 0; /* Remove bordas arredondadas */
 }

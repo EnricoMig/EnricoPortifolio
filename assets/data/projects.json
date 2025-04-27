@@ -3,7 +3,7 @@
         {
             "id": 1,
             "titulo": "Discord Bot IoT",
-            "imagem": "assets/images/cardblank.svg",
+            "imagem": "/assets/images/cardBlank.svg",
             "descricao": "Bot em Java integrado com Arduino para automação residencial, implementando lógica de controle para dispositivos inteligentes.",
             "tecnologias": ["Java", "Arduino", "IoT"],
             "link": "#"
@@ -11,7 +11,7 @@
         {
             "id": 2,
             "titulo": "Kakebo Online",
-            "imagem": "assets/images/cardblank.svg",
+            "imagem": "/assets/images/cardBlank.svg",
             "descricao": "Sistema de gestão financeira pessoal com frontend web e backend robusto para controle de orçamentos e despesas.",
             "tecnologias": ["Java", "Spring Boot", "PostgreSQL", "JavaScript", "HTML/CSS"],
             "link": "#"
@@ -19,7 +19,7 @@
         {
             "id": 3,
             "titulo": "Portfólio Interativo",
-            "imagem": "assets/images/cardblank.svg",
+            "imagem": "/assets/images/cardBlank.svg",
             "descricao": "Portfólio 3D interativo com visualização de projetos em ambiente virtual.",
             "tecnologias": ["React", "Three.js"],
             "link": "#",
@@ -28,7 +28,7 @@
         {
             "id": 4,
             "titulo": "Sistema de Chat",
-            "imagem": "assets/images/cardblank.svg",
+            "imagem": "/assets/images/cardBlank.svg",
             "descricao": "Aplicação de mensagens em tempo real com salas privadas.",
             "tecnologias": ["Node.js", "WebSockets"],
             "link": "#",

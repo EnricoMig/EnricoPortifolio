@@ -7,7 +7,8 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/AnimationScript.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/AnimationStyle.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/SobreStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -36,62 +37,29 @@
         <p id="typing-subtitle" class="hidden"></p>
     </section>
     
-    <section>
-        <p>
-            Meu nome é Enrico de Oliveira Migliorini, tenho XX anos e atuo como programador Full-Stack e Designer Gráfico            dentro da Faculdade participei de um projeto de extensão focado no uso das metologias ageis como o Scrum para micros e pequenas empresas, estudei na school of art, game and animation (SAGA) onde aprendi ferramentas de designer gráfico. Fiz parte do movimento Escoteiro por 14 anos.
-        </p>
-        <div>
-            <span>JAVA</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JAVASCRIPT</span>
-            <span>SPRINGBOOT</span>
-            <span>MONGO DB</span>
-            <span>POSTGRESQL</span>
-            <span>GITHUB</span>
-            <span>FIGMA</span>
+    <section id="about">
+        <div class="about-content">
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="assets/images/profile_photo.jpg" alt="Foto de Enrico Migliorini">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre Mim</h2>
+                    <p class="animated-text">
+                        Meu nome é Enrico de Oliveira Migliorini, tenho XX anos e atuo como programador Full-Stack e Designer Gráfico. Dentro da faculdade participei de um projeto de extensão focado no uso de metodologias ágeis como o Scrum para micros e pequenas empresas. Estudei na School of Art, Game and Animation (SAGA) onde aprendi ferramentas de designer gráfico. Fiz parte do movimento Escoteiro por 14 anos.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="skills-container">
+                <h3>Habilidades</h3>
+                <div class="skills-marquee">
+                    <div class="skills-track" id="skillsTrack"></div>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="projetos">
-        <h2>Projetos</h2>
-        <div>
-            <!-- Projeto 1 -->
-            <article>
-                <img src="projeto1.jpg" alt="Projeto 1">
-                <h3>Nome do Projeto</h3>
-                <div>
-                    <span>Java</span>
-                    <span>SpringBoot</span>
-                    <span>PostgreSQL</span>
-                </div>
-                <p>Descrição breve do projeto e seu objetivo principal.</p>
-            </article>
-
-            <!-- Projeto 2 -->
-            <article>
-                <img src="projeto2.jpg" alt="Projeto 2">
-                <h3>Outro Projeto</h3>
-                <div>
-                    <span>JavaScript</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                </div>
-                <p>Descrição do segundo projeto desenvolvido.</p>
-            </article>
-
-            <!-- Projeto Placeholder (para futuros projetos) -->
-            <article>
-                <img src="em-breve.jpg" alt="Projeto Futuro">
-                <h3>Em Breve</h3>
-                <div>
-                    <span>React</span>
-                    <span>Node.js</span>
-                </div>
-                <p>Novos projetos estão a caminho!</p>
-            </article>
-        </div>
-    </section>
-
+    
 
     <footer>
         Email: oliveiraenrico1@gmail.com
@@ -99,5 +67,6 @@
     </footer>
 
     <script src="assets/js/Animation.js"></script>
+    <script src="assets/js/Sobre.js"></script>
 </body>
 </html>

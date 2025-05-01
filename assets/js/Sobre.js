@@ -1,15 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const skills = [
-        { name: "JAVA", class: "java" },
-        { name: "HTML", class: "html" },
-        { name: "CSS", class: "css" },
-        { name: "JAVASCRIPT", class: "javascript" },
-        { name: "SPRINGBOOT", class: "springboot" },
-        { name: "MONGO DB", class: "mongodb" },
-        { name: "POSTGRESQL", class: "postgresql" },
-        { name: "GITHUB", class: "github" },
-        { name: "FIGMA", class: "figma" }
-    ];
+
 
     const track = document.getElementById('skillsTrack');
     const speed = 0.5; // pixels por frame

@@ -25,7 +25,7 @@
     height: 280px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #00ffff;
+    border: 4px solid #ffffff;
     margin: 0 auto;
     position: relative;
     animation: pulse-glow 3s ease-in-out infinite;
@@ -44,19 +44,6 @@
     transform: scale(1.05);
 }
 
-/* Efeito de brilho pulsante */
-@keyframes pulse-glow {
-    0% {
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.8),
-                   0 0 40px rgba(0, 255, 255, 0.4);
-    }            100% {
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-    }
-}
-
 /* Texto */
 .about-text {
     flex: 1;
@@ -64,32 +51,24 @@
 
 .about-text h2 {
     font-family: 'Audiowide', cursive;
-    font-size: 2.5rem;
-    color: #00ffff;
+    font-size: 50px;
+    color: #4f4fcd;
     margin-bottom: 20px;
-    position: relative;
+    text-align: relative;
 }
 
-.about-text h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, transparent);
-}
 
 .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 1.9;
     opacity: 0;
     animation: fadeInUp 1s forwards;
     animation-delay: 0.3s;
+    color: #e0e0e0; /* Melhor contraste em fundos escuros */
     text-align: justify;
-    text-justify: inter-word;
     margin-bottom: 1.5rem;
 }
+
 
 /* Container das habilidades */
 .skills-container {
@@ -98,10 +77,12 @@
     padding: 20px 0;
 }
 
-.skills-container h3 {
-    font-size: 1.8rem;
+.skills-container h2 {
+    font-size: 35px;
     margin-bottom: 20px;
-    color: rgba(0, 255, 64, 0.521);
+    color:#4f4fcd;
+    text-align: center;
+    font-weight: bold; 
 }
 
 .skills-marquee {
@@ -109,25 +90,47 @@
     overflow: hidden;
 }
 
+/* Tags de habilidades pequenas e coloridas */
 .skills-track {
     display: flex;
-    gap: 8px;
-    width: max-content;
-    align-items: center;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente (se necessário) */
+    flex-wrap: wrap;          /* Permite quebra de linha se necessário */
+    gap: 1rem;                /* Espaço entre os ícones */
 }
 
-/* Tags de habilidades pequenas e coloridas */
-.skill-tag {
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    white-space: nowrap;
-    color: white;
-    flex-shrink: 0;
-    transform: scale(0.9);
+
+.skill-icon {
+    background-color: #1e1e1e;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
+
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+
+.skill-icon i {
+    font-size: 40px;
+    color: white;
+}
+
+.skill-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: none; /* NÃO aplicar branco nos personalizados */
+}
+
+
 
 /* Bolinha separadora */
 .separator-dot {
@@ -137,23 +140,6 @@
     background-color: #cccccc;
     border-radius: 50%;
     flex-shrink: 0;
-}
-
-/* Cores específicas para cada tecnologia */
-.skill-tag.java { background: #531919; }
-.skill-tag.html { background: #e34c26; }
-.skill-tag.css { background: #264de4; }
-.skill-tag.javascript { background: #f0db4f; color: #333; }
-.skill-tag.springboot { background: #6db33f; }
-.skill-tag.mongodb { background: #4db33d; }
-.skill-tag.postgresql { background: #336791; }
-.skill-tag.github { background: #171515; }
-.skill-tag.figma { background: #a259ff; }
-
-/* Efeito de zoom sutil no hover */
-.skill-tag:hover {
-    transform: scale(1.05);
-    z-index: 1;
 }
 
 @keyframes fadeInUp {

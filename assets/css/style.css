@@ -7,33 +7,41 @@ body {
     padding-bottom: 80px;
 }
 
+h2{
+    font-family: 'Audiowide', monospace;
+}
+
 /* Header */
 
 header {
     display: flex;
     background-color: #19191a;
-    padding: 5px 20px; /* Espaçamento interno horizontal */
+    padding: 5px 20px; 
     align-items: center;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Container flex para todos os elementos alinhados */
+
 .header-content {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 20px; /* Espaço uniforme entre elementos */
+    gap: 20px;
 }
 
-/* Título */
+header span{
+    color: #4f4fcd;
+
+}
+
 header h3 {
     font-family: 'Audiowide', 'Courier New', monospace;
     font-size: 2rem;
     color: #fff;
     margin: 0;
-    flex: 1; /* Ocupa espaço proporcional */
-    white-space: nowrap; /* Impede quebra de linha */
+    flex: 1; 
+    white-space: nowrap; 
 }
 
 .gitIcon a {

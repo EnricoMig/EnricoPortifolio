@@ -2,29 +2,18 @@
     padding: 80px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    
 }
 
 /* TÍTULO MODERNO */
 #projetos h2 {
     font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 60px;
-    color: currentColor;
-    position: relative;
+    margin-bottom: 30px;
+    color: #4f4fcd;;
+    position: center;
     font-weight: 600;
     letter-spacing: 1px;
-}
-
-#projetos h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(0,150,255,0.8), transparent);
-    border-radius: 3px;
 }
 
 /* CARDS MODERNOS TRANSPARENTES */
@@ -72,6 +61,7 @@
     margin: 0 0 15px;
     color: inherit;
     font-weight: 500;
+    
 }
 
 /* TAGS ESTILIZADAS */

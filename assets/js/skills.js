@@ -40,3 +40,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 });
+
+
+// assets/js/skills.js
+document.addEventListener('DOMContentLoaded', function() {
+    const skills = document.querySelectorAll('.skill-icon');
+    
+    skills.forEach(skill => {
+        // Tooltip para desktop
+        skill.addEventListener('mouseenter', function(e) {
+            if (window.innerWidth > 768) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'skill-tooltip';
+                tooltip.textContent = this.getAttribute('data-name');
+                document.body.appendChild(tooltip);
+                
+                const rect = this.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width/2 - tooltip.offsetWidth/2}px`;
+                tooltip.style.top = `${rect.top - 40}px`;
+                
+                this.addEventListener('mouseleave', () => {
+                    tooltip.remove();
+                }, { once: true });
+            }
+        });
+        
+        // Feedback tátil para mobile
+        skill.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        
+        skill.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});

@@ -1,39 +1,34 @@
-/* Container principal */
+/* Container das habilidades */
 .skills-container {
-    padding: 20px 0;
-    width: 100%;
-    overflow-x: auto; /* Permite rolagem horizontal */
-    white-space: nowrap; /* Impede quebra de linha */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .skills-container h2 {
-    font-size: 35px;
-    margin-bottom: 20px;
-    color: #4f4fcd;
     text-align: center;
-    font-weight: bold;
+    margin-bottom: 2rem;
 }
 
-/* Container das habilidades (horizontal) */
-.skills-track {
-    display: inline-block;
-    padding: 10px 20px;
-    white-space: nowrap;
+/* Grid de habilidades para desktop */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
 }
 
-/* Ícones circulares - Mantendo seu estilo original */
+/* Estilo dos ícones (mantendo seu visual circular) */
 .skill-icon {
     background-color: #1e1e1e;
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 15px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
-    vertical-align: middle;
 }
 
 .skill-icon:hover {
@@ -41,30 +36,50 @@
 }
 
 .skill-icon i {
-    font-size: 40px;
+    font-size: 2rem;
     color: white;
 }
 
 .skill-icon svg {
-    width: 40px;
-    height: 40px;
+    width: 2rem;
+    height: 2rem;
 }
 
-/* Customização da scrollbar (opcional) */
-.skills-container::-webkit-scrollbar {
-    height: 8px;
+/* Versão mobile */
+@media (max-width: 768px) {
+    .skills-container {
+        padding: 1rem;
+        overflow: hidden;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .skill-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .skill-icon i,
+    .skill-icon svg {
+        font-size: 1.75rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
 }
 
-.skills-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.skills-container::-webkit-scrollbar-thumb {
-    background: #4f4fcd;
-    border-radius: 10px;
-}
-
-.skills-container::-webkit-scrollbar-thumb:hover {
-    background: #3a3a9e;
+/* Ajuste extra para telas muito pequenas */
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+        gap: 0.8rem;
+    }
+    
+    .skill-icon {
+        width: 65px;
+        height: 65px;
+    }
 }

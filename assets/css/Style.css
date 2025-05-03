@@ -1,102 +1,176 @@
 /* Estilos Globais */
+:root {
+    /* Sistema de Tipografia Responsiva */
+    --title-ratio: 1.25;
+    --base-size: 1rem;
+    --h1-size: calc(var(--base-size) * 2.5);
+    --h2-size: calc(var(--h1-size) / var(--title-ratio));
+    --h3-size: calc(var(--h2-size) / var(--title-ratio));
+    --h4-size: calc(var(--h3-size) / var(--title-ratio));
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Space Mono', monospace;
     background-color: #303031;
+    color: white;
     line-height: 1.6;
     padding-bottom: 80px;
 }
 
-h2{
+h1, h2, h3, h4 {
     font-family: 'Audiowide', monospace;
+    color: #4f4fcd;
+    margin-top: 0;
 }
+
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); margin-bottom: 1.5rem; }
+h3 { font-size: var(--h3-size); }
+h4 { font-size: var(--h4-size); }
 
 /* Header */
-
 header {
-    display: flex;
     background-color: #19191a;
-    padding: 5px 20px; 
-    align-items: center;
+    padding: 1rem;
     width: 100%;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-
 
 .header-content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-header span{
-    color: #4f4fcd;
+.logo-mobile {
+    display: none;
+}
 
+header span {
+    color: #4f4fcd;
 }
 
 header h3 {
-    font-family: 'Audiowide', 'Courier New', monospace;
-    font-size: 2rem;
-    color: #fff;
+    font-size: var(--h3-size);
     margin: 0;
-    flex: 1; 
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
-.gitIcon a {
-    font-size: 1.5rem;
-    color: white;
-    transition: all 0.3s ease; /* Suaviza a transição */
-}
-
-/* Efeito hover - Cor roxa do GitHub */
-.gitIcon a:hover {
-    color: #6e5494 !important; /* Roxo oficial do GitHub */
-    transform: scale(1.1); /* Aumenta levemente o ícone */
-}
-/* Links de navegação */
+/* Navegação Desktop */
 .nav-links {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    gap: 12px;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 16px; /* Aumentei um pouco o padding para melhor visualização */
+    padding: 0.5rem 1rem;
     white-space: nowrap;
     transition: all 0.3s ease;
-    border-radius: 10px; /* Borda arredondada padrão */
+    border-radius: 10px;
 }
 
-/* Efeito hover */
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
-    box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5); /* Borda roxa sutil */
-    transform: translateY(-2px); /* Efeito de levitação */
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5);
+    transform: translateY(-2px);
 }
 
-/*Section*/
-section{
-    padding: 0 32px 64px; /* 2rem = 32px, 4rem = 64px */
+.gitIcon a {
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
 }
 
-/*Footer*/
+.gitIcon a:hover {
+    color: #6e5494 !important;
+    transform: scale(1.1);
+}
+
+/* Seções */
+section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer */
 footer {
     background-color: #19191a;
     color: white;
     text-align: center;
-    padding: 16px;
+    padding: 1rem;
     position: fixed;
     bottom: 0;
-    left: 0; /* Garante alinhamento à esquerda */
-    right: 0; /* Garante alinhamento à direita */
-    width: 100%; /* Ocupa 100% da largura */
+    width: 100%;
     border-top: 1px solid #34495e;
-    margin: 0; /* Remove margens */
-    border-radius: 0; /* Remove bordas arredondadas */
+}
+
+/* Menu Mobile */
+@media (max-width: 768px) {
+    :root {
+        --base-size: 0.9rem;
+        --title-ratio: 1.2;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .logo-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .mobile-menu-button {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+        background: none;
+        border: none;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 1rem;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .gitIcon {
+        margin-left: 0;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+    :root {
+        --base-size: 0.8rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    #hero h1 {
+        font-size: calc(var(--h1-size) * 0.9);
+    }
 }

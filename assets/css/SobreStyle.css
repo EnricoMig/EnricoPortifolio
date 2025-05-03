@@ -70,67 +70,6 @@
 }
 
 
-/* Container das habilidades */
-.skills-container {
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-}
-
-.skills-container h2 {
-    font-size: 35px;
-    margin-bottom: 20px;
-    color:#4f4fcd;
-    text-align: center;
-    font-weight: bold; 
-}
-
-.skills-marquee {
-    width: 100%;
-    overflow: hidden;
-}
-
-/* Tags de habilidades pequenas e coloridas */
-.skills-track {
-    display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;      /* Centraliza verticalmente (se necessário) */
-    flex-wrap: wrap;          /* Permite quebra de linha se necessário */
-    gap: 1rem;                /* Espaço entre os ícones */
-}
-
-
-.skill-icon {
-    background-color: #1e1e1e;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-}
-
-.skill-icon:hover {
-    transform: scale(1.1);
-}
-
-.skill-icon i {
-    font-size: 40px;
-    color: white;
-}
-
-.skill-icon img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    border-radius: 50%;
-    filter: none; /* NÃO aplicar branco nos personalizados */
-}
-
-
 
 /* Bolinha separadora */
 .separator-dot {

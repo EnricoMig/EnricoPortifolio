@@ -1,0 +1,70 @@
+/* Container principal */
+.skills-container {
+    padding: 20px 0;
+    width: 100%;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    white-space: nowrap; /* Impede quebra de linha */
+}
+
+.skills-container h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #4f4fcd;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Container das habilidades (horizontal) */
+.skills-track {
+    display: inline-block;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+/* Ícones circulares - Mantendo seu estilo original */
+.skill-icon {
+    background-color: #1e1e1e;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+
+.skill-icon i {
+    font-size: 40px;
+    color: white;
+}
+
+.skill-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Customização da scrollbar (opcional) */
+.skills-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.skills-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+    background: #4f4fcd;
+    border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-thumb:hover {
+    background: #3a3a9e;
+}

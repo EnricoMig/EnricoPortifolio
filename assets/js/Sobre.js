@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-
     const track = document.getElementById('skillsTrack');
     const speed = 0.5; // pixels por frame
     

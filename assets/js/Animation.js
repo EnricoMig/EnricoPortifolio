@@ -1,5 +1,5 @@
   // Textos para a animação
-  const texts = ["Enrico Migliorini", "RICKMIG DEV"];
+  const texts = ["Enrico Migliorini", "EnricoMig DEV"];
   const subtitle = "\"Programando sempre o Melhor Possivel.\"";
   
   // Variáveis de controle

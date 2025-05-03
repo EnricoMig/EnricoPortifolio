@@ -1,77 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('assets/data/tech.json')
         .then(response => {
-            if (!response.ok) throw new Error('Erro ao carregar habilidades');
+            if (!response.ok) throw new Error("Erro ao carregar habilidades");
             return response.json();
         })
         .then(data => {
-            const skillsTrack = document.getElementById('skillsTrack');
-            
+            const container = document.getElementById('skillsTrack');
+            container.innerHTML = '';
+
             data.skills.forEach(skill => {
-                const skillIcon = document.createElement('div');
-                skillIcon.className = 'skill-icon';
-                skillIcon.setAttribute('data-name', skill.name);
-                
-                if (skill.type === 'devicon') {
-                    skillIcon.innerHTML = `<i class="${skill.iconClass}"></i>`;
-                } else if (skill.type === 'svg') {
-                    skillIcon.innerHTML = skill.iconSVG;
-                } else if (skill.type === 'image') {
-                    skillIcon.innerHTML = `<img src="${skill.iconPath}" alt="${skill.name}">`;
+                const skillDiv = document.createElement('div');
+                skillDiv.className = 'skill-item';
+
+                let iconContent;
+                if (skill.type === "svg" && skill.iconSVG) {
+                    // Ajuste para SVG ficar centralizado e maior
+                    iconContent = `
+                        <div style="
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        ">
+                            ${skill.iconSVG.replace('fill="#fff"', 'fill="white"')}
+                        </div>
+                    `;
+                } else {
+                    // Ícone Devicon com classes ajustadas
+                    iconContent = `
+                        <i class="${skill.iconClass}" 
+                           style="
+                               color: white !important;
+                               font-size: 5rem;
+                               width: 100%;
+                               height: 100%;
+                               display: flex;
+                               align-items: center;
+                               justify-content: center;
+                           "></i>
+                    `;
                 }
-                
-                skillsTrack.appendChild(skillIcon);
+
+                skillDiv.innerHTML = `
+                    <div class="skill-icon">
+                        ${iconContent}
+                    </div>
+                    <span class="skill-name">${skill.name}</span>
+                `;
+
+                container.appendChild(skillDiv);
             });
         })
         .catch(error => {
-            console.error('Erro:', error);
-            // Fallback estático
-            const fallbackSkills = [
-                {name: 'HTML5', icon: 'devicon-html5-plain', type: 'devicon'},
-                {name: 'CSS3', icon: 'devicon-css3-plain', type: 'devicon'},
-                {name: 'JavaScript', icon: 'devicon-javascript-plain', type: 'devicon'}
-            ];
-            
-            fallbackSkills.forEach(skill => {
-                const skillIcon = document.createElement('div');
-                skillIcon.className = 'skill-icon';
-                skillIcon.innerHTML = `<i class="${skill.icon}"></i>`;
-                document.getElementById('skillsTrack').appendChild(skillIcon);
-            });
+            console.error("Erro:", error);
+            document.getElementById('skillsTrack').innerHTML = `
+                <p class="error">⚠️ Falha ao carregar habilidades. Recarregue a página.</p>
+            `;
         });
-});
-
-
-// assets/js/skills.js
-document.addEventListener('DOMContentLoaded', function() {
-    const skills = document.querySelectorAll('.skill-icon');
-    
-    skills.forEach(skill => {
-        // Tooltip para desktop
-        skill.addEventListener('mouseenter', function(e) {
-            if (window.innerWidth > 768) {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'skill-tooltip';
-                tooltip.textContent = this.getAttribute('data-name');
-                document.body.appendChild(tooltip);
-                
-                const rect = this.getBoundingClientRect();
-                tooltip.style.left = `${rect.left + rect.width/2 - tooltip.offsetWidth/2}px`;
-                tooltip.style.top = `${rect.top - 40}px`;
-                
-                this.addEventListener('mouseleave', () => {
-                    tooltip.remove();
-                }, { once: true });
-            }
-        });
-        
-        // Feedback tátil para mobile
-        skill.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(1.1)';
-        });
-        
-        skill.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
 });

@@ -1,111 +1,118 @@
- /* ===== SEÇÃO "SOBRE MIM - SEM FUNDO ===== */
- #about {
-    padding: 80px 20px;
-    scroll-margin-top: 80px;
-}
 
-.about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-/* Container foto + texto */
-.profile-section {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-/* Estilo da foto de perfil */
-.profile-photo {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #ffffff;
-    margin: 0 auto;
-    position: relative;
-    animation: pulse-glow 3s ease-in-out infinite;
-    flex-shrink: 0;
-}
-
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    transition: transform 0.5s ease;
-}
-
-.profile-photo:hover img {
-    transform: scale(1.05);
-}
-
-/* Texto */
-.about-text {
-    flex: 1;
-}
-
-.about-text h2 {
-    font-family: 'Audiowide', cursive;
-    font-size: 50px;
-    color: #4f4fcd;
-    margin-bottom: 20px;
-    text-align: relative;
-}
-
-
-.about-text p {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    opacity: 0;
-    animation: fadeInUp 1s forwards;
-    animation-delay: 0.3s;
-    color: #e0e0e0; /* Melhor contraste em fundos escuros */
-    text-align: justify;
-    margin-bottom: 1.5rem;
-}
-
-
-
-/* Bolinha separadora */
-.separator-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #cccccc;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-section {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .profile-photo {
-        width: 220px;
-        height: 220px;
-    }
-
-    .about-text h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
+         /* ===== SEÇÃO "SOBRE MIM - SEM FUNDO ===== */
+         #about {
+            padding: 80px 20px;
+            scroll-margin-top: 80px;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        /* Container foto + texto */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        /* Estilo da foto de perfil */
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            margin: 0 auto;
+            position: relative;
+            animation: pulse-glow 3s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-photo:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Texto */
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-family: 'Audiowide', cursive;
+            font-size: 30px; /* Ajusta o tamanho do título com base na largura da tela */
+            color: #4f4fcd;
+            margin-bottom: 20px;
+            text-align: relative;
+        }
+        
+        .about-text p {
+            font-size: 20px; /* Ajusta o tamanho do texto com base na largura da tela */
+            line-height: 1.9;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.3s;
+            color: #e0e0e0; /* Melhor contraste em fundos escuros */
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            word-spacing: normal;  /* Reduz espaçamento entre palavras */
+            letter-spacing: normal;  /* Reduz espaçamento entre letras */
+        }
+        
+        /* Bolinha separadora */
+        .separator-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #cccccc;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+        
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+            }
+        
+            .about-text h2 {
+                font-size: 8vw;  /* Tamanho do título ajustado para telas menores */
+                margin-bottom: 15px;
+            }
+        
+            .about-text p {
+                font-size: 4vw;  /* Tamanho do texto ajustado para telas menores */
+                line-height: 1.6;  /* Ajusta o espaçamento entre linhas */
+                margin: 0 10px 1.2rem 10px;  /* Margem ajustada para celulares */
+                text-align: justify; /* Mantém o texto justificado */
+            }
+        }

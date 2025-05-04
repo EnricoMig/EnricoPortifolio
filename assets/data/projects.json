@@ -2,37 +2,40 @@
     "projetos": [
         {
             "id": 1,
-            "titulo": "Discord Bot IoT",
-            "imagem": "/assets/images/cardBlank.svg",
-            "descricao": "Bot em Java integrado com Arduino para automação residencial, implementando lógica de controle para dispositivos inteligentes.",
-            "tecnologias": ["Java", "Arduino", "IoT"],
-            "link": "#"
+            "nome": "Simulador Kakebo",
+            "descricao": "Aplicação Java para controle de finanças pessoais baseada no método Kakebo. Permite registrar receitas e despesas, gerar relatórios e simular metas de economia. Projeto estruturado com aplicação dos padrões Singleton, Strategy e Observer.",
+            "historia": "A ideia surgiu enquanto buscava uma forma para controlar as minhas finanças e encontrei o Método Japonês Kakebo. Enquanto aprendia aplicar a ideia de criar algo digital surgiu, embora por motivos pessoais acabei não desenvolvendo. O momento para desenvolver, partiu da aula de Arquitetura de Software onde o professor passou uma atividade avaliativa onde deveriamos desenvolver um projeto com três desginers pattners de nossa escolha.",
+            "techs": ["Java"],
+            "links": {
+            "github": "https://github.com/seuperfil/netflix-clone",
+            "documentacao": "https://drive.google.com/file/d/1NvCwB07imqTE_32cjXcYL1g6F8JVivX2/view?usp=sharing"
+            },
+            "midias": {
+            "imagens": [
+                "/assets/images/SimuladorKakebo/Captura de tela de 2025-05-18 16-23-12.png", 
+                "/assets/images/SimuladorKakebo/Captura de tela de 2025-05-18 16-24-47.png",
+                "/home/enrico-migliorini/Scripts/WEB/EnricoPortifolio/assets/images/SimuladorKakebo/Captura de tela de 2025-05-18 16-25-10.png"],
+            "videos": ["demo.mp4"]
+            }
         },
         {
             "id": 2,
-            "titulo": "Kakebo Online",
-            "imagem": "/assets/images/cardBlank.svg",
-            "descricao": "Sistema de gestão financeira pessoal com frontend web e backend robusto para controle de orçamentos e despesas.",
-            "tecnologias": ["Java", "Spring Boot", "PostgreSQL", "JavaScript", "HTML/CSS"],
-            "link": "#"
-        },
-        {
-            "id": 3,
-            "titulo": "Portfólio Interativo",
-            "imagem": "/assets/images/cardBlank.svg",
-            "descricao": "Portfólio 3D interativo com visualização de projetos em ambiente virtual.",
-            "tecnologias": ["React", "Three.js"],
-            "link": "#",
-            "placeholder": true
-        },
-        {
-            "id": 4,
-            "titulo": "Sistema de Chat",
-            "imagem": "/assets/images/cardBlank.svg",
-            "descricao": "Aplicação de mensagens em tempo real com salas privadas.",
-            "tecnologias": ["Node.js", "WebSockets"],
-            "link": "#",
-            "placeholder": true
-        }
+            "nome": "[Adicione um Titulo do Projeto]",
+            "descricao": "[Adicione a Descrição do Projeto]",
+            "historia": "[Adicione a Historia do Projeto]",
+            "techs": ["techonologia 1"],
+            "links": {
+            "github": "https://github.com/seuperfil",
+            "link1": "[Adicione Link do Projeto]"
+            },
+            "midias": {
+            "imagens": [
+                "[Adicione a imagem 1 do Projeto]",
+                "[Adicione a imagem 2 do Projeto]",
+                "[Adicione a imagem 3 do Projeto]"    
+            ],
+            "videos": ["demo.mp4"]
+            }
+        }              
     ]
 }

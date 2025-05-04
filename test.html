@@ -1,21 +1,444 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhas Habilidades</title>
-    <link rel="stylesheet" href="assets/css/Style.css">
-    <link rel="stylesheet" href="assets/css/HabilidadeStyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhes do Projeto</title>
+  
+  <!-- Fontes -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/Style.css">
+  
+  <style>
+    :root {
+      --primary-color: #2d3436;
+      --secondary-color: #636e72;
+      --accent-color: #00cec9;
+      --light-color: #f5f6fa;
+      --dark-color: #1e272e;
+    }
     
+
+    
+    .back-button {
+      color: var(--light-color);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    
+    .back-button:hover {
+      color: var(--accent-color);
+    }
+    
+    .project-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    
+    .project-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .project-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+    
+    .project-techs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .tech-badge {
+      background-color: var(--accent-color);
+      color: var(--light-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    
+    .project-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .project-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .project-description, .project-history {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .project-link:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+    
+    .project-gallery {
+      margin-top: 2rem;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .empty-section {
+      color: var(--secondary-color);
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Modal para imagens */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      overflow: auto;
+    }
+
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .project-title {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      .project-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="skills-container">
-        <h2>HABILIDADES</h2>
-        <div id="skillsTrack" class="skills-grid"></div>
+  <header>
+    <div class="logo">
+      <h3><span>EnricoMig</span> DEV</h3>
+    </div>
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+  </header>
+
+  <main class="project-container">
+    <div id="loading" class="loading">
+      <i class="fas fa-spinner fa-spin"></i> Carregando projeto...
     </div>
     
-    <script src="assets/js/skills.js"></script>
+    <div id="project-content" style="display: none;">
+      <div class="project-header">
+        <h1 class="project-title" id="project-title"></h1>
+        <div class="project-techs" id="project-techs"></div>
+      </div>
+      
+      <div class="project-content">
+        <section class="project-description">
+          <h2 class="section-title">Descrição</h2>
+          <p id="project-description"></p>
+          <div id="links-container">
+            <h3 class="section-title">Links</h3>
+            <div class="project-links" id="project-links"></div>
+          </div>
+        </section>
+        
+        <section class="project-history">
+          <h2 class="section-title">História</h2>
+          <p id="project-history"></p>
+        </section>
+      </div>
+      
+      <section class="project-gallery" id="gallery-section">
+        <h2 class="section-title">Galeria</h2>
+        <div class="gallery-grid" id="project-gallery"></div>
+      </section>
+    </div>
+
+    <div id="error-message" class="error-message" style="display: none;"></div>
+  </main>
+
+  <!-- Modal para imagens -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" class="modal-img" src="" alt="">
+    </div>
+  </div>
+
+  <footer>
+    Email: oliveiraenrico1@gmail.com | Whatsapp: (11) 98768-3685
+  </footer>
+
+  <script>document.addEventListener('DOMContentLoaded', function() {
+    // Elementos da página
+    const loadingElement = document.getElementById('loading');
+    const contentElement = document.getElementById('project-content');
+    const errorElement = document.getElementById('error-message');
+    
+    // Obter ID do projeto da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('id');
+    
+    if (!projectId) {
+        showError('ID do projeto não especificado na URL');
+        return;
+    }
+    
+    // Carregar dados do JSON
+    fetch('/assets/data/projects.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha ao carregar os projetos');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const project = data.projetos.find(p => p.id == projectId);
+            
+            if (!project) {
+                throw new Error(`Projeto com ID ${projectId} não encontrado`);
+            }
+            
+            renderProject(project);
+        })
+        .catch(error => {
+            showError(error.message);
+        });
+    
+    function renderProject(project) {
+        // Preencher título do projeto
+        document.getElementById('project-title').textContent = project.nome || 'Projeto sem título';
+        
+        // Preencher tecnologias
+        const techsContainer = document.getElementById('project-techs');
+        techsContainer.innerHTML = '';
+        
+        if (project.techs && project.techs.length > 0) {
+            project.techs.forEach(tech => {
+                const badge = document.createElement('span');
+                badge.className = 'tech-badge';
+                badge.textContent = tech;
+                techsContainer.appendChild(badge);
+            });
+        } else {
+            techsContainer.innerHTML = '<span class="empty-section">Tecnologias não especificadas</span>';
+        }
+        
+        // Preencher descrição
+        const descriptionElement = document.getElementById('project-description');
+        descriptionElement.textContent = project.descricao || 'Descrição não disponível';
+        
+        // Preencher história
+        const historyElement = document.getElementById('project-history');
+        historyElement.textContent = project.historia || 'História do projeto não disponível';
+        
+        // Preencher links
+        const linksContainer = document.getElementById('project-links');
+        linksContainer.innerHTML = '';
+        
+        if (project.links) {
+            Object.entries(project.links).forEach(([type, url]) => {
+                if (!url) return;
+                
+                const link = document.createElement('a');
+                link.href = url;
+                link.className = 'project-link';
+                link.target = '_blank';
+                
+                // Ícones específicos para tipos de links
+                switch(type) {
+                    case 'github':
+                        link.innerHTML = '<i class="fab fa-github"></i> GitHub';
+                        break;
+                    case 'documentacao':
+                        link.innerHTML = '<i class="fas fa-file-alt"></i> Documentação';
+                        break;
+                    case 'demo':
+                        link.innerHTML = '<i class="fas fa-external-link-alt"></i> Demo';
+                        break;
+                    default:
+                        link.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+                }
+                
+                linksContainer.appendChild(link);
+            });
+        }
+        
+        // Preencher galeria de imagens
+        const galleryContainer = document.getElementById('project-gallery');
+        galleryContainer.innerHTML = '';
+        
+        if (project.midias && project.midias.imagens && project.midias.imagens.length > 0) {
+            project.midias.imagens.forEach(image => {
+                // Verifica se é um caminho válido (ignora placeholders)
+                if (typeof image !== 'string' || image.includes('[Adicione')) return;
+                
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = image.startsWith('/') ? image : `/assets/images/${image}`;
+                img.alt = project.nome;
+                img.loading = 'lazy';
+                
+                // Adiciona evento para abrir imagem no modal
+                img.addEventListener('click', function() {
+                    openModal(img.src);
+                });
+                
+                galleryItem.appendChild(img);
+                galleryContainer.appendChild(galleryItem);
+            });
+        } else {
+            document.getElementById('gallery-section').style.display = 'none';
+        }
+        
+        // Esconder loading e mostrar conteúdo
+        loadingElement.style.display = 'none';
+        contentElement.style.display = 'block';
+    }
+    
+    function showError(message) {
+        loadingElement.style.display = 'none';
+        errorElement.textContent = `Erro: ${message}`;
+        errorElement.style.display = 'block';
+    }
+    
+    // Modal para imagens
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    
+    function openModal(imgSrc) {
+        modal.style.display = 'block';
+        modalImg.src = imgSrc;
+    }
+    
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+});
+  </script>
 </body>
 </html>

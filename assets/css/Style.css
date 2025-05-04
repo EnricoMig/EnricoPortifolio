@@ -1,110 +1,117 @@
-/* Estilos Globais */
 :root {
-    /* Sistema de Tipografia Responsiva */
     --title-ratio: 1.25;
     --base-size: 1rem;
     --h1-size: calc(var(--base-size) * 2.5);
     --h2-size: calc(var(--h1-size) / var(--title-ratio));
     --h3-size: calc(var(--h2-size) / var(--title-ratio));
     --h4-size: calc(var(--h3-size) / var(--title-ratio));
-}
+  }
 
-body {
+  body {
     margin: 0;
     font-family: 'Space Mono', monospace;
     background-color: #303031;
     color: white;
     line-height: 1.6;
     padding-bottom: 80px;
-}
+  }
 
-h1, h2, h3, h4 {
+  h1, h2, h3, h4 {
     font-family: 'Audiowide', monospace;
     color: #4f4fcd;
     margin-top: 0;
-}
+  }
 
-h1 { font-size: var(--h1-size); }
-h2 { font-size: var(--h2-size); margin-bottom: 1.5rem; }
-h3 { font-size: var(--h3-size); }
-h4 { font-size: var(--h4-size); }
-
-/* Header */
-header {
+  header {
     background-color: #19191a;
-    padding: 1rem;
+    padding: 0.3rem 1rem;
     width: 100%;
     box-sizing: border-box;
     position: sticky;
     top: 0;
     z-index: 100;
-}
+  }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
+  .header-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
+  }
 
-.logo-mobile {
-    display: none;
-}
+  .logo {
+    display: flex;
+    align-items: center;
+  }
 
-header span {
-    color: #4f4fcd;
-}
-
-header h3 {
+  .logo h3 {
     font-size: var(--h3-size);
     margin: 0;
     white-space: nowrap;
-}
+    color: white;
+  }
 
-/* Navegação Desktop */
-.nav-links {
+  .logo h3 span {
+    color: #4f4fcd;
+  }
+
+  .gitIcon {
+    text-align: center;
+  }
+
+  .gitIcon a {
+    font-size: 1.6rem;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .gitIcon a:hover {
+    color: #6e5494;
+    transform: scale(1.1);
+  }
+
+  .nav-links {
     display: flex;
-    gap: 1.5rem;
+    justify-content: flex-end;
+    gap: 1rem;
     align-items: center;
-}
+  }
 
-.nav-links a {
+  .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.6rem;
     white-space: nowrap;
     transition: all 0.3s ease;
     border-radius: 10px;
-}
+    font-size: 0.9rem;
+  }
 
-.nav-links a:hover {
+  .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5);
     transform: translateY(-2px);
-}
+  }
 
-.gitIcon a {
-    font-size: 1.5rem;
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
     color: white;
-    transition: all 0.3s ease;
-}
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+  }
 
-.gitIcon a:hover {
-    color: #6e5494 !important;
-    transform: scale(1.1);
-}
-
-/* Seções */
-section {
+  section {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
+  }
 
-/* Footer */
-footer {
+  footer {
     background-color: #19191a;
     color: white;
     text-align: center;
@@ -113,64 +120,73 @@ footer {
     bottom: 0;
     width: 100%;
     border-top: 1px solid #34495e;
-}
+  }
 
-/* Menu Mobile */
-@media (max-width: 768px) {
+  /* Oculta no mobile */
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
     :root {
-        --base-size: 0.9rem;
-        --title-ratio: 1.2;
+      --base-size: 0.9rem;
+      --title-ratio: 1.2;
     }
-    
+
     .header-content {
-        flex-direction: column;
-        align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
-    
-    .logo-mobile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .mobile-menu-button {
-        display: block;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: white;
-        background: none;
-        border: none;
-    }
-    
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-top: 1rem;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .gitIcon {
-        margin-left: 0;
-        padding: 0.5rem 0;
-        text-align: center;
-    }
-}
 
-/* Ajustes para telas muito pequenas */
-@media (max-width: 480px) {
+    .logo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .mobile-menu-button {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      padding-top: 1rem;
+      width: 100%;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
     :root {
-        --base-size: 0.8rem;
+      --base-size: 0.8rem;
     }
-    
+
     section {
-        padding: 1rem;
+      padding: 1rem;
     }
-    
+
     #hero h1 {
-        font-size: calc(var(--h1-size) * 0.9);
+      font-size: calc(var(--h1-size) * 0.9);
     }
-}
+  }

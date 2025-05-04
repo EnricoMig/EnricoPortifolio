@@ -19,25 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Template do card
         card.innerHTML = `
-            <img src="${projeto.imagem}" alt="${projeto.titulo}" loading="lazy">
+            <img src="${projeto.imagem || 'assets/images/default-project.jpg'}" 
+                 alt="${projeto.nome || 'Projeto sem nome'}" 
+                 loading="lazy">
             <div class="projeto-content">
-                <h3>${projeto.titulo}</h3>
+                <h3>${projeto.nome || 'Novo Projeto'}</h3>
                 <div class="tech-tags">
-                    ${projeto.tecnologias.map(tech => 
+                    ${(projeto.techs || []).map(tech => 
                         `<span class="tech-tag" data-tech="${tech.toLowerCase()}">${tech}</span>`
                     ).join('')}
                 </div>
-                <p>${projeto.descricao}</p>
+                <p>${projeto.descricao || 'Descrição não disponível'}</p>
+                <div class="card-actions">
+                    <button class="view-details-btn">Ver detalhes</button>
+                </div>
             </div>
         `;
 
-        // Adiciona clique se houver link
-        if (projeto.link && projeto.link !== '#') {
+        // Adiciona evento de clique para redirecionar para a página de detalhes
+        const detailsBtn = card.querySelector('.view-details-btn');
+        detailsBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita conflito com outros event listeners
+            window.location.href = `project-details.html?id=${projeto.id}`;
+        });
+
+        // Se houver link externo, mantemos a funcionalidade original
+        if (projeto.links && projeto.links.demo) {
             card.addEventListener('click', () => {
-                window.open(projeto.link, '_blank');
+                window.open(projeto.links.demo, '_blank');
             });
             card.style.cursor = 'pointer';
-            card.title = "Abrir projeto";
+            card.title = "Abrir demonstração do projeto";
         }
 
         return card;
@@ -60,11 +72,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Nenhum projeto encontrado no arquivo.');
             }
             
+            // Filtra projetos que não são placeholders
+            const projetosValidos = data.projetos.filter(projeto => 
+                !projeto.nome.includes('[Adicione') && 
+                !projeto.descricao.includes('[Adicione')
+            );
+            
             // Cria e adiciona os cards
-            data.projetos.forEach(projeto => {
+            projetosValidos.forEach(projeto => {
                 const card = createProjectCard(projeto);
                 container.appendChild(card);
             });
+
+            // Se não houver projetos válidos
+            if (projetosValidos.length === 0) {
+                container.innerHTML = `
+                    <div class="no-projects-message">
+                        <p>Nenhum projeto disponível no momento</p>
+                    </div>
+                `;
+            }
         })
         .catch(error => {
             console.error('Falha ao carregar projetos:', error);
@@ -78,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-// Adiciona este CSS dinâmico para mensagens
+// Adiciona este CSS dinâmico para mensagens e botões
 const style = document.createElement('style');
 style.textContent = `
     .loading-message {
@@ -98,6 +125,32 @@ style.textContent = `
     }
     .error-message h3 {
         color: inherit;
+    }
+    .no-projects-message {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+    }
+    .card-actions {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .view-details-btn {
+        background-color: #00cec9;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .view-details-btn:hover {
+        background-color: #00a8a5;
+    }
+    .projeto-card {
+        position: relative;
+        overflow: hidden;
     }
 `;
 document.head.appendChild(style);

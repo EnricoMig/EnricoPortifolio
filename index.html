@@ -22,26 +22,36 @@
 <body>
     <header>
         <div class="header-content">
-            <div class="logo-mobile">
-                <h3><span>EnricoMig</span> DEV</h3>
-                <div class="mobile-menu-button" id="mobileMenuButton">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
+          <!-- LOGO -->
+          <div class="logo">
+            <h3><span>EnricoMig</span> DEV</h3>
+            <button class="mobile-menu-button" id="mobileMenuButton">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
     
-            <div class="nav-links" id="navLinks">
-                <a href="#">Curriculo</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Contato</a>
-                <div class="gitIcon">
-                    <a href="https://github.com/EnricoMig" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+          <!-- GITHUB DESKTOP -->
+          <div class="gitIcon desktop-only">
+            <a href="https://github.com/EnricoMig" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+    
+          <!-- LINKS -->
+          <div class="nav-links" id="navLinks">
+            <a href="#">Currículo</a>
+            <a href="#">Portfólio</a>
+            <a href="#">Contato</a>
+    
+            <!-- GITHUB MOBILE -->
+            <div class="gitIcon mobile-only">
+              <a href="https://github.com/EnricoMig" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
             </div>
+          </div>
         </div>
-    </header>
-
+      </header>
     <section id="hero">
         <h1 id="typing-text"></h1>
         <p id="typing-subtitle" class="hidden"></p>

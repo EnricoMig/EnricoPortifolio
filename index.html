@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Portifolio</title>
-
+    <title>Portfólio EnricoMig</title>
+    
     <!-- Estilos -->
     <link rel="stylesheet" type="text/css" href="assets/css/Style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/SobreStyle.css">
@@ -17,41 +17,144 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA OS CARDS DE PROJETOS */
+        .projetos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
 
+        .project-card {
+            background: #2d3748;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid #4a5568;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a202c;
+            padding: 1rem;
+        }
+
+        .card-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: #4fd1c5;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-family: 'Audiowide', cursive;
+        }
+
+        .card-content p {
+            color: #a0aec0;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-techs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background: #4a5568;
+            color: #ffffff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: #4fd1c5;
+            color: #1a202c;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .card-button:hover {
+            background: #38b2ac;
+        }
+
+        /* Estilo especial para SVGs */
+        .card-image[src$=".svg"] {
+            width: 80%;
+            height: 80%;
+        }
+
+        @media (max-width: 768px) {
+            .projetos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-image-container {
+                height: 160px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-          <!-- LOGO -->
-          <div class="logo">
-            <h3><span>EnricoMig</span> DEV</h3>
-            <button class="mobile-menu-button" id="mobileMenuButton">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-    
-          <!-- GITHUB DESKTOP -->
-          <div class="gitIcon desktop-only">
-            <a href="https://github.com/EnricoMig" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-    
-          <!-- LINKS -->
-          <div class="nav-links" id="navLinks">
-            <a href="#">Currículo</a>
-            <a href="index.html">Portfólio</a>
-            <a href="#">Contato</a>
-    
-            <!-- GITHUB MOBILE -->
-            <div class="gitIcon mobile-only">
-              <a href="https://github.com/EnricoMig" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
+            <div class="logo">
+                <h3><span>EnricoMig</span> DEV</h3>
+                <button class="mobile-menu-button" id="mobileMenuButton">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-          </div>
+            
+            <div class="gitIcon desktop-only">
+                <a href="https://github.com/EnricoMig" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#">Currículo</a>
+                <a href="index.html">Portfólio</a>
+                <a href="#">Contato</a>
+                
+                <div class="gitIcon mobile-only">
+                    <a href="https://github.com/EnricoMig" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-      </header>
+    </header>
+
     <section id="hero">
         <h1 id="typing-text"></h1>
         <p id="typing-subtitle" class="hidden"></p>
@@ -95,37 +198,9 @@
     <script src="assets/js/Sobre.js"></script>
     <script src="assets/js/skills.js"></script>
     <script src="assets/js/Animation.js"></script>
-    <script src="assets/js/projects.js"></script>
     <script src="assets/js/mobileMenu.js"></script>
+    <script src="assets/js/projects.js"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        try {
-          const response = await fetch("data/projects.json");
-          const data = await response.json();
-          const projects = data.projetos; // <- ACESSO CORRETO AQUI
-          const container = document.getElementById("projects-container");
-    
-          projects.forEach((project, index) => {
-            const card = document.createElement("div");
-            card.className = "col-md-4 mb-4";
-            card.innerHTML = `
-              <div class="card h-100">
-                <img src="${project.midias.imagens[0]}" class="card-img-top" alt="${project.nome}">
-                <div class="card-body">
-                  <h5 class="card-title">${project.nome}</h5>
-                  <p class="card-text">${project.descricao}</p>
-                  <a href="test.html?id=${project.id}" class="btn btn-primary">Ver Projeto</a>
-                </div>
-              </div>
-            `;
-            container.appendChild(card);
-          });
-        } catch (error) {
-          console.error("Erro ao carregar projetos:", error);
-        }
-      });
-    </script>
-    
+
 </body>
 </html>

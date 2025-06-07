@@ -1,61 +1,84 @@
+// projects.js - Versão corrigida e completa
 document.addEventListener('DOMContentLoaded', function() {
-    // URL do JSON (com barra no início para caminho absoluto)
+    // 1. Configurações iniciais
     const projectsUrl = '/assets/data/projects.json';
-    
-    // Elemento container onde os cards serão inseridos
     const container = document.getElementById('projetosContainer');
     
-    // Mostra estado de carregamento
-    container.innerHTML = '<p class="loading-message">Carregando projetos...</p>';
+    // 2. Mostra estado de carregamento
+    container.innerHTML = '<div class="loading-state"><i class="fas fa-spinner fa-spin"></i> Carregando projetos...</div>';
 
-    // Função para criar um card de projeto
-    function createProjectCard(projeto) {
-        const card = document.createElement('article');
-        card.className = 'projeto-card';
-        
-        if (projeto.placeholder) {
-            card.classList.add('placeholder');
+    // 3. Função para corrigir caminhos de imagens
+    const resolveImagePath = (imgPath) => {
+        if (!imgPath || imgPath.includes("[Adicione")) {
+            return 'assets/images/cardBlank.svg';
         }
+        
+        // Remove './' do início se existir
+        if (imgPath.startsWith('./')) {
+            imgPath = imgPath.substring(2);
+        }
+        
+        // Se já começa com assets/, mantém
+        if (imgPath.startsWith('assets/')) {
+            return imgPath;
+        }
+        
+        // Se começa com images/, assume assets/images/
+        if (imgPath.startsWith('images/')) {
+            return `assets/${imgPath}`;
+        }
+        
+        // Padrão final: assume assets/images/
+        return `assets/images/${imgPath}`;
+    };
 
-        // Template do card
+    // 4. Função para criar um card de projeto
+    function createProjectCard(project) {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        
+        // Obtém a imagem de capa correta
+        const coverImage = resolveImagePath(project.midias?.capa);
+        
+        // HTML do card
         card.innerHTML = `
-            <img src="${projeto.imagem || 'assets/images/default-project.jpg'}" 
-                 alt="${projeto.nome || 'Projeto sem nome'}" 
-                 loading="lazy">
-            <div class="projeto-content">
-                <h3>${projeto.nome || 'Novo Projeto'}</h3>
+            <div class="card-image-container">
+                <img src="${coverImage}" 
+                     alt="Capa do projeto ${project.nome}" 
+                     class="card-image"
+                     loading="lazy"
+                     onerror="this.onerror=null; this.src='assets/images/cardBlank.svg'">
+            </div>
+            <div class="card-content">
+                <h3>${project.nome}</h3>
                 <div class="tech-tags">
-                    ${(projeto.techs || []).map(tech => 
-                        `<span class="tech-tag" data-tech="${tech.toLowerCase()}">${tech}</span>`
-                    ).join('')}
+                    ${project.techs.map(tech => `
+                        <span class="tech-tag" data-tech="${tech.toLowerCase()}">${tech}</span>
+                    `).join('')}
                 </div>
-                <p>${projeto.descricao || 'Descrição não disponível'}</p>
+                <p>${project.descricao}</p>
                 <div class="card-actions">
-                    <button class="view-details-btn">Ver detalhes</button>
+                    <a href="pages/project-details.html?id=${project.id}" class="card-button">
+                        Ver Detalhes <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         `;
-
-        // Adiciona evento de clique para redirecionar para a página de detalhes
-        const detailsBtn = card.querySelector('.view-details-btn');
-        detailsBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita conflito com outros event listeners
-            window.location.href = `pages/projects.html?id=${projeto.id}`;
-        });
-
-        // Se houver link externo, mantemos a funcionalidade original
-        if (projeto.links && projeto.links.demo) {
-            card.addEventListener('click', () => {
-                window.open(projeto.links.demo, '_blank');
+        
+        // 5. Evento para links externos (se existirem)
+        if (project.links?.demo) {
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.card-button')) {
+                    window.open(project.links.demo, '_blank');
+                }
             });
             card.style.cursor = 'pointer';
-            card.title = "Abrir demonstração do projeto";
         }
-
+        
         return card;
     }
 
-    // Carrega os projetos
+    // 6. Carrega os projetos
     fetch(projectsUrl)
         .then(response => {
             if (!response.ok) {
@@ -67,27 +90,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Limpa mensagem de carregamento
             container.innerHTML = '';
             
-            // Verifica se existem projetos
-            if (!data.projetos || data.projetos.length === 0) {
-                throw new Error('Nenhum projeto encontrado no arquivo.');
-            }
-            
-            // Filtra projetos que não são placeholders
-            const projetosValidos = data.projetos.filter(projeto => 
-                !projeto.nome.includes('[Adicione') && 
-                !projeto.descricao.includes('[Adicione')
+            // Filtra projetos válidos
+            const validProjects = data.projetos.filter(project => 
+                !project.nome.includes("[Adicione") && 
+                !project.descricao.includes("[Adicione")
             );
             
-            // Cria e adiciona os cards
-            projetosValidos.forEach(projeto => {
-                const card = createProjectCard(projeto);
-                container.appendChild(card);
+            // Adiciona cards ao container
+            validProjects.forEach(project => {
+                container.appendChild(createProjectCard(project));
             });
-
-            // Se não houver projetos válidos
-            if (projetosValidos.length === 0) {
+            
+            // Mensagem se não houver projetos
+            if (validProjects.length === 0) {
                 container.innerHTML = `
-                    <div class="no-projects-message">
+                    <div class="no-projects">
+                        <i class="fas fa-info-circle"></i>
                         <p>Nenhum projeto disponível no momento</p>
                     </div>
                 `;
@@ -97,60 +115,76 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Falha ao carregar projetos:', error);
             container.innerHTML = `
                 <div class="error-message">
-                    <h3>Não foi possível carregar os projetos</h3>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Erro ao carregar projetos</h3>
                     <p>${error.message}</p>
-                    <p>Por favor, tente recarregar a página ou entre em contato.</p>
+                    <button onclick="window.location.reload()" class="retry-button">
+                        <i class="fas fa-sync-alt"></i> Tentar novamente
+                    </button>
                 </div>
             `;
         });
 });
 
-// Adiciona este CSS dinâmico para mensagens e botões
-const style = document.createElement('style');
-style.textContent = `
-    .loading-message {
+// 7. Estilos mínimos necessários (adicione ao seu CSS principal)
+const projectStyles = document.createElement('style');
+projectStyles.textContent = `
+    .loading-state {
         text-align: center;
         padding: 2rem;
-        color: #666;
-        font-style: italic;
+        color: #4fd1c5;
+        font-size: 1.1rem;
     }
+    
+    .project-card {
+        background: #2d3748;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .card-image-container {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a202c;
+        overflow: hidden;
+    }
+    
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .card-image[src$=".svg"] {
+        object-fit: contain;
+        padding: 1rem;
+        width: 80%;
+        height: 80%;
+    }
+    
+    .project-card:hover .card-image {
+        transform: scale(1.05);
+    }
+    
     .error-message {
         text-align: center;
         padding: 2rem;
-        color: #d32f2f;
-        background: rgba(211, 47, 47, 0.1);
-        border-radius: 8px;
-        max-width: 600px;
-        margin: 0 auto;
+        color: #e53e3e;
     }
-    .error-message h3 {
-        color: inherit;
-    }
-    .no-projects-message {
-        text-align: center;
-        padding: 2rem;
-        color: #666;
-    }
-    .card-actions {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: flex-end;
-    }
-    .view-details-btn {
-        background-color: #00cec9;
-        color: white;
+    
+    .retry-button {
+        background: #4fd1c5;
+        color: #1a202c;
         border: none;
         padding: 0.5rem 1rem;
         border-radius: 4px;
+        margin-top: 1rem;
         cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .view-details-btn:hover {
-        background-color: #00a8a5;
-    }
-    .projeto-card {
-        position: relative;
-        overflow: hidden;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(projectStyles);

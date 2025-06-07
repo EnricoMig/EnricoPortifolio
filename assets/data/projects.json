@@ -11,6 +11,7 @@
             "link1": "[Adicione Link do Projeto]"
             },
             "midias": {
+            "capa":"",
             "imagens": [
                 "[Adicione a imagem 1 do Projeto]",
                 "[Adicione a imagem 2 do Projeto]",
@@ -30,6 +31,7 @@
                 "documentacao": "https://drive.google.com/file/d/1NvCwB07imqTE_32cjXcYL1g6F8JVivX2/view?usp=sharing"
             },
             "midias": {
+                "capa": "assets/images/SimuladorKakebo/capa-simuladorKakebo.svg",
                 "imagens": [
                     "assets/images/SimuladorKakebo/captura1.png",
                     "assets/images/SimuladorKakebo/captura2.png",
@@ -50,6 +52,7 @@
             "link1": "[Adicione Link do Projeto]"
             },
             "midias": {
+            "capa": "[Adicione uma capa]",
             "imagens": [
                 "[Adicione a imagem 1 do Projeto]",
                 "[Adicione a imagem 2 do Projeto]",

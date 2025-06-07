@@ -1,120 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Projeto</title>
+
     <!-- CSS Principal -->
     <link rel="stylesheet" href="../assets/css/Style.css">
+    <link rel="stylesheet" href="../assets/css/ProjectPageStyle.css">
+
     <!-- Fontes e Ícones -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* ESTILOS ESPECÍFICOS PARA ESTA PÁGINA */
-        .project-details-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .project-media-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .media-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .media-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-        
-        .media-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .media-caption {
-            padding: 0.8rem;
-            background: white;
-            font-size: 0.9rem;
-            color: #4a5568;
-            text-align: center;
-        }
-        
-        .project-info {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .project-links {
-            flex: 1;
-        }
-        
-        .project-tech {
-            flex: 1;
-        }
-        
-        .links-grid {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .tech-badges {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        
-        .tech-badge {
-            background: #4991f0;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        /* Estilo dos links para combinar com o header */
-        .project-link {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-            font-family: 'Space Mono', monospace;
-            border-radius: 4px;
-        }
-
-        .project-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .project-link i {
-            margin-right: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .project-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -153,91 +53,6 @@
             </article>
         </section>
     </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectId = urlParams.get('id');
-
-            if (!projectId) {
-                window.location.href = "../index.html";
-                return;
-            }
-
-            try {
-                const response = await fetch("../assets/data/projects.json");
-                const data = await response.json();
-                const project = data.projetos.find(p => p.id == projectId);
-
-                if (!project) throw new Error("Projeto não encontrado");
-
-                // Preenche os dados do projeto
-                document.getElementById("project-title").textContent = project.nome;
-                
-                // Descrição + História
-                document.getElementById("project-description").innerHTML = `
-                    <h2 class="section-title">Descrição</h2>
-                    <p class="paragraph">${project.descricao}</p>
-                    
-                    ${project.historia ? `
-                    <h2 class="section-title">História do Projeto</h2>
-                    <p class="paragraph">${project.historia}</p>
-                    ` : ''}
-                `;
-
-                // Tecnologias
-                const techDiv = document.getElementById("project-technologies");
-                techDiv.innerHTML = `
-                    <h2 class="section-title">Tecnologias Utilizadas</h2>
-                    <div class="tech-badges">
-                        ${project.techs.map(tech => `
-                            <span class="tech-badge">${tech}</span>
-                        `).join('')}
-                    </div>
-                `;
-
-                // Galeria de Imagens (com tratamento de caminhos)
-                const gallery = document.getElementById("project-media");
-                project.midias.imagens.forEach(img => {
-                    // Corrige caminhos absolutos/relativos
-                    const correctedPath = img.includes('assets/') 
-                        ? `../${img.split('assets/')[1]}`
-                        : img;
-                        
-                    if (!img.includes("[Adicione")) {
-                        gallery.innerHTML += `
-                            <div class="media-item">
-                                <img src="${correctedPath}" alt="${project.nome}" class="media-image">
-                                <div class="media-caption">${project.nome}</div>
-                            </div>
-                        `;
-                    }
-                });
-
-                // Links do Projeto
-                const linksDiv = document.getElementById("project-links");
-                let linksHTML = '<h2 class="section-title">Links Relacionados</h2><div class="links-grid">';
-                
-                for (const [key, value] of Object.entries(project.links)) {
-                    if (value && !value.includes("[Adicione")) {
-                        const icon = key === 'github' ? '<i class="fab fa-github"></i>' : 
-                                    key === 'documentacao' ? '📄' : '🔗';
-                        linksHTML += `
-                            <a href="${value}" target="_blank" class="project-link">
-                                ${icon} ${key.charAt(0).toUpperCase() + key.slice(1)}
-                            </a>
-                        `;
-                    }
-                }
-                
-                linksDiv.innerHTML = linksHTML + '</div>';
-
-            } catch (error) {
-                console.error("Erro ao carregar projeto:", error);
-                alert("Projeto não encontrado ou erro ao carregar dados!");
-                window.location.href = "../index.html";
-            }
-        });
-    </script>
+    <script src="../assets/js/ProjectPage.js"></script>
 </body>
 </html>

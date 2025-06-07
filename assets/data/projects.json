@@ -2,6 +2,25 @@
     "projetos": [
         {
             "id": 1,
+            "nome": "PORTIFOLIO PESSOAL",
+            "descricao": "Uma plataforma minimalista para poder exibir meus projetos desenvolvidos, usando as linguagens HTML/CSS/Javascript, para o desenvolvimento e design das telas, além de JSON para gravar os projetos e as skills especificas de tecnologias. A escolhas dessas linguagens, foi para conseguir usar o Vercel como uma opção de hospedagem com maior custo beneficio. ",
+            "historia": "Uma vez voltando com uma colega da faculdade, estavamos conversando sobre como conseguir trabalhos em nossa área como Desenvolvedor ou Analista, o assunto sobre o portifolio surgiu e ai começou a ideia, a verdade é que no começo eu não sabia exatamente o que fazer, então procurei até achar no youtube, alguns videos explicando de que um portifolio precisa de uma breve descrição sobre a pessoa, seus conhecimentos em tecnologias e o que a pessoa já fez. Apartir dai foi que entendi o que precisava e comecei a desenvolver.",
+            "techs": ["HTML/CSS/JS","JSON", "Vercel"],
+            "links": {
+            "github": "https://github.com/EnricoMig/EnricoPortifolio",
+            "link1": "[Adicione Link do Projeto]"
+            },
+            "midias": {
+            "imagens": [
+                "[Adicione a imagem 1 do Projeto]",
+                "[Adicione a imagem 2 do Projeto]",
+                "[Adicione a imagem 3 do Projeto]"    
+            ],
+            "videos": ["demo.mp4"]
+            }
+        }  ,
+        {
+            "id": 2,
             "nome": "Simulador Kakebo",
             "descricao": "Aplicação Java para controle de finanças pessoais baseada no método Kakebo. Permite registrar receitas e despesas, gerar relatórios e simular metas de economia. Projeto estruturado com aplicação dos padrões Singleton, Strategy e Observer.",
             "historia": "A ideia surgiu enquanto buscava uma forma para controlar as minhas finanças e encontrei o Método Japonês Kakebo. Enquanto aprendia aplicar a ideia de criar algo digital surgiu, embora por motivos pessoais acabei não desenvolvendo. O momento para desenvolver, partiu da aula de Arquitetura de Software onde o professor passou uma atividade avaliativa onde deveriamos desenvolver um projeto com três desginers pattners de nossa escolha.",
@@ -12,15 +31,16 @@
             },
             "midias": {
                 "imagens": [
-                    "./images/SimuladorKakebo/Captura de tela de 2025-05-18 16-23-12.png",
-                    "assets/images/SimuladorKakebo/Captura de tela de 2025-05-18 16-24-47.png",
-                    "assets/images/SimuladorKakebo/Captura de tela de 2025-05-18 16-25-10.png"
+                    "assets/images/SimuladorKakebo/captura1.png",
+                    "assets/images/SimuladorKakebo/captura2.png",
+                    "assets/images/SimuladorKakebo/captura3.png"
                 ],
                 "videos": ["demo.mp4"]
             }
         },
+        
         {
-            "id": 2,
+            "id": 3,
             "nome": "[Adicione um Titulo do Projeto]",
             "descricao": "[Adicione a Descrição do Projeto]",
             "historia": "[Adicione a Historia do Projeto]",
@@ -37,6 +57,6 @@
             ],
             "videos": ["demo.mp4"]
             }
-        }              
+        }             
     ]
 }

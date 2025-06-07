@@ -7,6 +7,20 @@
     --h4-size: calc(var(--h3-size) / var(--title-ratio));
   }
 
+  html, body {
+    height: 100%;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
   body {
     margin: 0;
     font-family: 'Space Mono', monospace;
@@ -116,11 +130,10 @@
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     border-top: 1px solid #34495e;
   }
+  
 
   /* Oculta no mobile */
   .desktop-only {

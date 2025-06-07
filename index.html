@@ -40,7 +40,7 @@
           <!-- LINKS -->
           <div class="nav-links" id="navLinks">
             <a href="#">Currículo</a>
-            <a href="#">Portfólio</a>
+            <a href="index.html">Portfólio</a>
             <a href="#">Contato</a>
     
             <!-- GITHUB MOBILE -->
@@ -97,5 +97,35 @@
     <script src="assets/js/Animation.js"></script>
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/mobileMenu.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch("data/projects.json");
+          const data = await response.json();
+          const projects = data.projetos; // <- ACESSO CORRETO AQUI
+          const container = document.getElementById("projects-container");
+    
+          projects.forEach((project, index) => {
+            const card = document.createElement("div");
+            card.className = "col-md-4 mb-4";
+            card.innerHTML = `
+              <div class="card h-100">
+                <img src="${project.midias.imagens[0]}" class="card-img-top" alt="${project.nome}">
+                <div class="card-body">
+                  <h5 class="card-title">${project.nome}</h5>
+                  <p class="card-text">${project.descricao}</p>
+                  <a href="test.html?id=${project.id}" class="btn btn-primary">Ver Projeto</a>
+                </div>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+        } catch (error) {
+          console.error("Erro ao carregar projetos:", error);
+        }
+      });
+    </script>
+    
 </body>
 </html>

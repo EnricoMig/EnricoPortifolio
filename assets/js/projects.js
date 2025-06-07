@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const detailsBtn = card.querySelector('.view-details-btn');
         detailsBtn.addEventListener('click', (e) => {
             e.stopPropagation(); // Evita conflito com outros event listeners
-            window.location.href = `project-details.html?id=${projeto.id}`;
+            window.location.href = `pages/projects.html?id=${projeto.id}`;
         });
 
         // Se houver link externo, mantemos a funcionalidade original

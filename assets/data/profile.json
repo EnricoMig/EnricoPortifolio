@@ -1,0 +1,167 @@
+{
+    "profile":[
+        {
+            "nome":"Enrico Migliorini",
+            "objetivo":"Desenvolvedor Full-Stack Junior",
+            "photo":"../assets/images/profile_photo.jpeg",
+            "infos":{
+                "nacionalidade":"Brasileiro",
+                "estado-civil":"Solteiro",
+                "idade":25,
+                "endereco":{
+                    "logradouro":"Av. Manoel Pedro Pimentel",
+                    "numero":365,
+                    "bairro":"Continental",
+                    "municipio":"Osasco",
+                    "UF":"SP"
+                }
+
+            },
+            "links":{
+                "whatsapp":"https://wa.me/5511987683685",
+                "linkedin":"https://www.linkedin.com/in/enricomig/",
+                "github":"https://github.com/EnricoMig",
+                "email":"oliveiraenrico1@gmail.com"
+            },
+            "qualificacoes":"Sólidos conhecimentos em atendimento ao cliente, Organização e aplicação de treinamentos técnicos, Conhecimento em programação e desenvolvimento de jogos analógicos. Experiência na elaboração de relatórios, planilhas e dashboards, além de trabalho em equipe e desenvolvimento de softwares e prompts.",
+            "experiencia":{
+                "template":{
+                    "id":0,
+                    "nome":"Nome do trabalho",
+                    "inicio":"00/00/2000",
+                    "termino":"00/00/2000",
+                    "ocupacao":"Qual foi a sua ocupação",
+                    "Dexricao": "Descreva o projeto em que participou ou atuação no trabalho"
+                },
+                "exp1":{
+                    "id":1,
+                    "nome":"Secretaria de Finanças do Municipio de Osasco",
+                    "inicio":"01/04/2024",
+                    "termino":"31/12/2024",
+                    "ocupacao":"Estagiário em Desenvolvimento de Software"
+                },
+                "exp2":{
+                    "id":2,
+                    "nome":"Projeto de Extensão Metodologias ágeis para micros e pequenas empresas",
+                    "inicio":"01/03/2023",
+                    "termino":"31/12/2024",
+                    "descricao":"Condução de workshops para alunos e profissionais no Senac, polo Santo Amaro (SP). Prestação de consultoria para pequenas empresas, aplicando Scrum e Kanban na resolução de desafios organizacionais. Desenvolvimento de um programa para atendimento ao cliente pelo Telegram e apresentação do projeto no Congresso Nacional de Iniciação Científica (CONIC)"
+                },
+                "exp3":{
+                    "id":3,
+                    "nome":"Projeto de Desenvolvimento para Tratamento de Planilhas",
+                    "inicio":"01/04/2024",
+                    "termino":"31/10/2024",
+                    "ocupacao":"Desenvolvedor",
+                    "descricao":"Desenvolvimento de programas para processamento de planilhas específicas e criação de uma dashboard no Power BI para análise da movimentação financeira do município de Osasco"
+                },
+                "exp4":{
+                    "id":4,
+                    "nome":"grupo zoe medicina ocupacional e perícias médicas",
+                    "inicio":"01/04/2025",
+                    "termino":"Atualmente",
+                    "ocupacao":"Assistente Administrativo II"
+                }
+
+            },
+            "formacao":{
+                "graduacao":{
+                    "instituicao":"Centro Universitario Senac",
+                    "curso":"Análise e Desenvolvimento de Sistemas (ADS)",
+                    "inicio":"01/08/2022",
+                    "termino":"30/07/2025"
+                }
+            },
+            "tecnologias":{
+                "python":{
+                    "titulo":"Python",
+                    "nivel":"Basico"
+                },
+                "Java":{
+                    "titulo":"Java",
+                    "nivel":"Intermediario"
+                },
+                "HTML":{
+                    "pacote":"WEB",
+                    "titulo":"HTML",
+                    "nivel":"Intermediario"
+                },
+                "CSS":{
+                    "pacote":"WEB",
+                    "titulo":"CSS",
+                    "nivel":"Basico"
+                },
+                "Javascript":{
+                    "pacote":"WEB",
+                    "titulo":"Javascript",
+                    "nivel":"Basico"
+                },
+                "MySQL":{
+                    "titulo":"MySQL",
+                    "nivel":"Basico"
+                },
+                "mongo":{
+                    "titulo":"Mongo DB",
+                    "nivel":"Intermediario"
+                },
+                "excel":{
+                    "pacote":"Microsoft",
+                    "titulo":"Excel",
+                    "nivel":"Basico"
+                },
+                "word":{
+                    "pacote":"Microsoft",
+                    "titulo":"Word",
+                    "nivel":"Basico"
+                },
+                "pbi":{
+                    "pacote":"Microsoft",
+                    "titulo":"Power Bi",
+                    "nivel":"Avancado"
+                },
+                "indesign":{
+                    "pacote":"Adobe",
+                    "titulo":"InDesign",
+                    "nivel":"Intermediario"
+                },
+                "photoshop":{
+                    "pacote":"Adobe",
+                    "titulo":"Photoshop",
+                    "nivel":"Intermediario"
+                },
+                "illustrator":{
+                    "pacote":"Adobe",
+                    "titulo":"Illustrator",
+                    "nivel":"Intermediario"
+                },
+                "after":{
+                    "pacote":"Adobe",
+                    "titulo":"After Effects",
+                    "nivel":"Basico"
+                },
+                "premiere":{
+                    "pacote":"Adobe",
+                    "titulo":"Premiere Pro",
+                    "nivel":"Basico"
+                }
+            },
+            "idiomas":{
+                "ingles":{
+                    "titulo":"Ingles",
+                    "nivel":"Intermediario"
+                },
+                "Libras":{
+                    "titulo":"Libras",
+                    "nivel":"Basico"
+                }
+            },
+            "complementares":[
+                "Diretor Geral de Cultura da Atlética no Instituto Federal Catarinense (Luzerna);",
+                "Grupo de Coral da Cultura Inglesa;",
+                "Representante da Equipe no Desafio BM&F Bovespa no ensino médio do EE Deputado Augusto do Amaral;",
+                "Estudo de Violão e Teatro no Projeto Palco;",
+                "Participante do movimento Escoteiro desde 2007, passando pelos ramos Lobinhos (6 - 10 anos), Escoteiro (11 - 14 anos), Sênior (15 - 17 anos), atingindo os graus máximos, além dos ramos Pioneiro (18 -21 anos) e Chefe (+21)"
+            ]
+        }
+    ]
+}

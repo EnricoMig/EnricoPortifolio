@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil - Enrico Migliorini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/Style.css">
+  <link rel="stylesheet" href="../assets/css/SobreStyle.css">
+  <style>
+    
+    .gitIcon {
+      text-align: center;
+    }
+
+    .gitIcon a {
+      font-size: 1.6rem;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .gitIcon a:hover {
+      color: #6e5494;
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    footer {
+      background-color: #19191a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+      border-top: 1px solid #34495e;
+    }
+
+    /* ESTILOS DO PERFIL */
+    #profile-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .profile-top-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .profile-photo-container {
+      flex: 0 0 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 20px rgba(79, 79, 205, 0.5);
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 20px;
+    }
+
+    .personal-info {
+      background-color: rgba(25, 25, 26, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      border: 1px solid #34495e;
+    }
+
+    .personal-info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #e0e0e0;
+    }
+
+    .personal-info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-title {
+      font-family: 'Audiowide', cursive;
+      font-size: 2.5rem;
+      color: #4f4fcd;
+      margin: 0 0 10px 0;
+    }
+
+    .profile-subtitle {
+      font-family: 'Audiowide', cursive;
+      font-size: 1.5rem;
+      color: #6e5494;
+      margin: 0 0 20px 0;
+    }
+
+    .profile-qualifications {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .profile-links a {
+      color: #4f4fcd;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .profile-links a:hover {
+      color: #6e5494;
+      transform: translateY(-3px);
+    }
+
+    .profile-section {
+      background-color: rgba(25, 25, 26, 0.7);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid #34495e;
+    }
+
+    .profile-section h2 {
+      font-family: 'Audiowide', cursive;
+      color: #4f4fcd;
+      margin-top: 0;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #4f4fcd;
+    }
+
+    .profile-section h2 i {
+      font-size: 1.5rem;
+    }
+
+    /* EXPERIÊNCIAS - LAYOUT VERTICAL CORRIGIDO */
+    .experiences-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .experience-item {
+      background-color: rgba(48, 48, 49, 0.5);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #4f4fcd;
+    }
+
+    .experience-item h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      font-weight: bold;
+    }
+
+    .experience-period {
+      display: block;
+      color: #b8b8b8;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .experience-position {
+      font-weight: bold;
+      color: #4f4fcd;
+      margin: 0 0 10px 0;
+      font-size: 1.1rem;
+      display: block;
+    }
+
+    .experience-description {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* FORMAÇÃO ACADÊMICA */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .education-item {
+      background-color: rgba(48, 48, 49, 0.5);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #4f4fcd;
+    }
+
+    .education-item h3 {
+      margin: 0 0 5px;
+      font-size: 1.3rem;
+      color: #e0e0e0;
+    }
+
+    .institution {
+      font-weight: 500;
+      color: #b8b8b8;
+      font-size: 1rem;
+    }
+
+    .period {
+      color: #b8b8b8;
+      font-size: 0.9rem;
+    }
+
+    /* HABILIDADES TÉCNICAS */
+    .skills-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .skill-category {
+      background-color: rgba(48, 48, 49, 0.5);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #4f4fcd;
+    }
+
+    .skill-category h3 {
+      margin: 0 0 15px;
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #34495e;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .skill-item {
+      margin-bottom: 8px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .skill-name {
+      font-weight: bold;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+    }
+
+    .skill-level {
+      color: #b8b8b8;
+      font-size: 0.85rem;
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: #303031;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #4f4fcd, #6e5494);
+      border-radius: 3px;
+    }
+
+    /* IDIOMAS */
+    .languages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .language-item {
+      background-color: rgba(48, 48, 49, 0.5);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #4f4fcd;
+    }
+
+    /* ATIVIDADES COMPLEMENTARES */
+    .complementary-list {
+      padding-left: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .complementary-list li {
+      line-height: 1.6;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      :root {
+        --base-size: 0.9rem;
+        --title-ratio: 1.2;
+      }
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+        padding-top: 1rem;
+        width: 100%;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .profile-top-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .profile-photo-container {
+        flex: 0 0 auto;
+        width: 100%;
+        align-items: center;
+      }
+      
+      .profile-content {
+        text-align: center;
+      }
+      
+      .profile-links {
+        justify-content: center;
+      }
+      
+      .profile-section h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --base-size: 0.8rem;
+      }
+
+      #profile-container {
+        padding: 10px;
+      }
+
+      .profile-photo {
+        width: 220px;
+        height: 220px;
+      }
+
+      .profile-title {
+        font-size: 2rem;
+      }
+
+      .profile-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .profile-section {
+        padding: 20px;
+      }
+
+      .profile-section h2 {
+        font-size: 1.4rem;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .experience-period {
+        margin-top: -5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <h3><span>EnricoMig</span> DEV</h3>
+          <button class="mobile-menu-button" id="mobileMenuButton">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        
+        <div class="gitIcon desktop-only">
+          <a href="https://github.com/EnricoMig" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        
+        <div class="nav-links" id="navLinks">
+          <a href="pages/curriculo.html">Currículo</a>
+          <a href="index.html">Portfólio</a>
+          
+          <div class="gitIcon mobile-only">
+            <a href="https://github.com/EnricoMig" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="profile-container">Carregando perfil...</div>
+    </main>
+
+    <footer>
+      <span>©EnricoDev - Portifolio Pessoal 2025</span>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu mobile
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const navLinks = document.getElementById('navLinks');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+
+      // Carrega o perfil
+      fetch('../assets/data/profile.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao carregar dados');
+          return response.json();
+        })
+        .then(data => {
+          const profile = data.profile[0];
+          renderProfile(profile);
+        })
+        .catch(err => {
+          console.error('Erro:', err);
+          showError();
+        });
+
+      function renderProfile(profile) {
+        const container = document.getElementById('profile-container');
+        
+        // Formatando endereço
+        const endereco = profile.infos.endereco;
+        const enderecoStr = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.municipio}/${endereco.UF}`;
+        
+        container.innerHTML = `
+          <section class="profile-top-section">
+                <div class="profile-photo-container">
+                    <img src="${profile.photo}" class="profile-photo" alt="Foto de ${profile.nome}" loading="lazy">
+              
+                    <div class="personal-info">
+                        <div class="personal-info-item">
+                            <i class="fas fa-user"></i>
+                            <span>${profile.infos.idade} anos</span>
+                        </div>
+                        <div class="personal-info-item">
+                            <i class="fas fa-passport"></i>
+                            <span>${profile.infos.nacionalidade}</span>
+                        </div>
+                        <div class="personal-info-item">
+                            <i class="fas fa-heart"></i>
+                            <span>${profile.infos["estado-civil"]}</span>
+                        </div>
+                        <div class="personal-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${enderecoStr}</span>
+                        </div>
+                        <div class="profile-links">
+                            <a href="${profile.links.linkedin}" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="${profile.links.github}" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:${profile.links.email}" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="${profile.links.whatsapp}" target="_blank" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="profile-content">
+                    <h1>${profile.nome}</h1>
+                    <h2>${profile.objetivo}</h2>
+                    <p class="profile-qualifications">${profile.qualificacoes}</p>
+                </div>
+                <div class="profile-section">
+                    <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+                    <div class="experiences-list">
+                        ${renderExperiences(profile.experiencia)}
+                    </div>
+                </div>
+          </section>
+
+          
+
+          <section class="profile-section">
+            <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+            <div class="education-list">
+              ${renderEducation(profile.formacao)}
+            </div>
+          </section>
+
+          <section class="profile-section">
+            <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+            <div class="skills-categories">
+              ${renderSkillCategories(profile.tecnologias)}
+            </div>
+          </section>
+
+          <section class="profile-section">
+            <h2><i class="fas fa-language"></i> Idiomas</h2>
+            <div class="languages-list">
+              ${renderLanguages(profile.idiomas)}
+            </div>
+          </section>
+
+          <section class="profile-section">
+            <h2><i class="fas fa-certificate"></i> Atividades Complementares</h2>
+            <ul class="complementary-list">
+              ${profile.complementares.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </section>
+        `;
+        // Anima as barras de progresso
+        animateSkillBars();
+      }
+
+      function renderExperiences(experiences) {
+        const expArray = Object.values(experiences)
+          .filter(exp => exp.id !== 0) // Remove o template
+          .sort((a, b) => b.id - a.id); // Ordena do mais recente
+        
+        return expArray.map(exp => `
+          <div class="experience-item">
+            <h3>${exp.nome}</h3>
+            <span class="experience-period">${exp.inicio} - ${exp.termino}</span>
+            <span class="experience-position">${exp.ocupacao || 'Posição não especificada'}</span>
+            ${exp.descricao ? `<p class="experience-description">${exp.descricao}</p>` : ''}
+          </div>
+        `).join('') || '<div class="experience-item">Nenhuma experiência profissional cadastrada.</div>';
+      }
+
+      function renderEducation(education) {
+        return `
+          <div class="education-item">
+            <h3>${education.graduacao.curso}</h3>
+            <p class="institution">${education.graduacao.instituicao}</p>
+            <p class="period">${education.graduacao.inicio} - ${education.graduacao.termino}</p>
+          </div>
+        `;
+      }
+
+      function renderSkillCategories(technologies) {
+        return `
+          <div class="skill-category">
+            <h3>Desenvolvimento</h3>
+            <div class="skills-list">
+              ${renderSkillsGroup(technologies, ['python', 'Java', 'HTML', 'CSS', 'Javascript', 'MySQL', 'mongo'])}
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Microsoft</h3>
+            <div class="skills-list">
+              ${renderSkillsGroup(technologies, ['excel', 'word', 'pbi'])}
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Adobe</h3>
+            <div class="skills-list">
+              ${renderSkillsGroup(technologies, ['indesign', 'photoshop', 'illustrator', 'after', 'premiere'])}
+            </div>
+          </div>
+        `;
+      }
+
+      function renderSkillsGroup(skillsObj, skillKeys) {
+        const skillsArray = skillKeys.map(key => skillsObj[key]).filter(Boolean);
+        
+        return skillsArray.map(skill => `
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">${skill.titulo}</span>
+              <span class="skill-level">${translateLevel(skill.nivel)}</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-level="${skill.nivel.toLowerCase()}"></div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function renderLanguages(languages) {
+        const languagesArray = Object.values(languages);
+        
+        return languagesArray.map(lang => `
+          <div class="language-item">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">${lang.titulo}</span>
+                <span class="skill-level">${translateLevel(lang.nivel)}</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-level="${lang.nivel.toLowerCase()}"></div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function animateSkillBars() {
+        const progressBars = document.querySelectorAll('.skill-progress');
+        progressBars.forEach(bar => {
+          const level = bar.getAttribute('data-level');
+          bar.style.width = getProgressWidth(level);
+        });
+      }
+
+      function translateLevel(level) {
+        const levels = {
+          'basico': 'Básico',
+          'intermediario': 'Intermediário',
+          'avancado': 'Avançado'
+        };
+        return levels[level.toLowerCase()] || level;
+      }
+
+      function getProgressWidth(level) {
+        const levels = {
+          'basico': '30%',
+          'básico': '30%',
+          'intermediario': '65%',
+          'intermediário': '65%',
+          'avancado': '90%',
+          'avançado': '90%',
+          'fluente': '100%',
+          'nativo': '100%'
+        };
+        return levels[level.toLowerCase()] || '50%';
+      }
+
+      function showError() {
+        document.getElementById('profile-container').innerHTML = `
+          <div class="error-message">
+            <p>Erro ao carregar informações do perfil. Por favor, tente novamente mais tarde.</p>
+            <button onclick="location.reload()">Recarregar Página</button>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

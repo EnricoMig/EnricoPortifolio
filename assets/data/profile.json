@@ -146,6 +146,10 @@
                 }
             },
             "idiomas":{
+                "portugues":{
+                    "titulo":"Português (Brasil)",
+                    "nivel":"Nativo"
+                },
                 "ingles":{
                     "titulo":"Ingles",
                     "nivel":"Intermediario"

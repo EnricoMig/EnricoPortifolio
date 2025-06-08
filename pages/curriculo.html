@@ -5,19 +5,141 @@
   <title>Perfil - Enrico Migliorini</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/Style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/SobreStyle.css">
   <style>
-    /* Sobrescreve o estilo problemático */
-    #profile-container .profile-section {
-        display: block !important;
-        align-items: stretch !important;
+    /* SISTEMA DE CORES */
+    :root {
+      --profile-primary: #4f4fcd;
+      --profile-primary-light: #6e6ee6;
+      --profile-secondary: #6e5494;
+      --profile-dark: rgba(25, 25, 26, 0.9);
+      --profile-card-bg: rgba(48, 48, 49, 0.5);
+      --profile-border: #34495e;
+      --text: #e0e0e0;
+      --text-light: #b8b8b8;
+      --dark: #19191a;
     }
+
+    /* ESTRUTURA PRINCIPAL */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* CABEÇALHO */
+    header {
+      background-color: var(--profile-dark);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--profile-border);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo h3 {
+      color: var(--profile-primary);
+      font-size: 1.5rem;
+    }
+
+    .logo h3 span {
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--profile-primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--profile-primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .gitIcon a {
+      color: var(--text);
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+
+    .gitIcon a:hover {
+      color: var(--profile-primary);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    main {
+      padding: 40px 0;
+    }
+
+    #profile-container {
+      animation: fadeIn 0.8s ease-out;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SEÇÃO SUPERIOR */
     .profile-top-section {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
       align-items: flex-start;
+      margin-bottom: 30px;
     }
 
     .profile-photo-container {
@@ -36,14 +158,26 @@
       object-fit: cover;
       object-position: center;
       margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px var(--profile-primary-light);
     }
 
     .personal-info {
-      background-color: rgba(25, 25, 26, 0.7);
+      background-color: var(--profile-dark);
       border-radius: 10px;
       padding: 20px;
       width: 100%;
-      border: 1px solid #34495e;
+      border: 1px solid var(--profile-border);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+    }
+
+    .personal-info:hover {
+      transform: translateY(-5px);
     }
 
     .personal-info-item {
@@ -51,7 +185,13 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 10px;
-      color: #e0e0e0;
+      color: var(--text);
+    }
+
+    .personal-info-item i {
+      color: var(--profile-primary);
+      width: 20px;
+      text-align: center;
     }
 
     .profile-content {
@@ -60,34 +200,105 @@
     }
 
     .profile-qualifications {
-      color: #e0e0e0;
+      color: var(--text);
       line-height: 1.6;
       margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .complementary-section {
+      background-color: var(--profile-dark);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid var(--profile-border);
+      backdrop-filter: blur(5px);
+    }
+
+    .complementary-list {
+      padding-left: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .complementary-list li {
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .complementary-list li::before {
+      content: '•';
+      color: var(--profile-primary);
+      position: absolute;
+      left: 0;
     }
 
     .profile-links {
       display: flex;
       gap: 15px;
       margin-top: 20px;
+      justify-content: center;
     }
 
     .profile-links a {
-      color: #4f4fcd;
+      color: var(--text);
       font-size: 1.5rem;
       transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--dark);
     }
 
-    .profile-section {
-      background-color: rgba(25, 25, 26, 0.7);
+    .profile-links a:hover {
+      color: white;
+      background-color: var(--profile-primary);
+      transform: translateY(-3px);
+    }
+
+    /* SEÇÃO DE FORMAÇÃO E EXPERIÊNCIA */
+    .education-experience-section {
+      background-color: var(--profile-dark);
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      border: 1px solid #34495e;
+      border: 1px solid var(--profile-border);
+      backdrop-filter: blur(5px);
+      margin-bottom: 30px;
     }
 
- 
+    .education-experience-section h2 {
+      color: var(--profile-primary);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    /* EXPERIÊNCIAS - LAYOUT VERTICAL */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .education-item {
+      background-color: var(--profile-card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--profile-primary);
+      transition: transform 0.3s;
+    }
+
+    .education-item:hover {
+      transform: translateX(5px);
+    }
+
     .experiences-list {
       display: flex;
       flex-direction: column;
@@ -95,60 +306,67 @@
     }
 
     .experience-item {
-      background-color: rgba(48, 48, 49, 0.5);
+      background-color: var(--profile-card-bg);
       padding: 20px;
       border-radius: 8px;
-      border-left: 4px solid #4f4fcd;
+      border-left: 4px solid var(--profile-primary);
+      transition: transform 0.3s;
+    }
+
+    .experience-item:hover {
+      transform: translateX(5px);
     }
 
     .experience-item h3 {
       margin: 0 0 5px 0;
       font-size: 1.3rem;
-      color: #e0e0e0;
+      color: var(--text);
       font-weight: bold;
     }
 
     .experience-period {
       display: block;
-      color: #b8b8b8;
+      color: var(--text-light);
       font-size: 0.95rem;
       margin-bottom: 8px;
     }
 
     .experience-position {
       font-weight: bold;
-      color: #4f4fcd;
+      color: var(--profile-primary);
       margin: 0 0 10px 0;
       font-size: 1.1rem;
       display: block;
     }
 
-    /* FORMAÇÃO ACADÊMICA */
-    .education-list {
-      display: flex;
-      flex-direction: column;
+    /* SEÇÃO DE TECNOLOGIAS */
+    .technologies-section {
+      background-color: var(--profile-dark);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--profile-border);
+      backdrop-filter: blur(5px);
+      margin-bottom: 30px;
+    }
+
+    .technologies-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .education-item {
-      background-color: rgba(48, 48, 49, 0.5);
+    .technology-category {
+      background-color: var(--profile-card-bg);
       padding: 20px;
       border-radius: 8px;
-      border-left: 4px solid #4f4fcd;
+      border-left: 4px solid var(--profile-primary);
     }
 
-    /* HABILIDADES TÉCNICAS */
-    .skills-categories {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .skill-category {
-      background-color: rgba(48, 48, 49, 0.5);
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #4f4fcd;
+    .technology-category h3 {
+      color: var(--profile-primary);
+      margin-top: 0;
+      margin-bottom: 15px;
     }
 
     .skills-list {
@@ -176,27 +394,175 @@
 
     .skill-progress {
       height: 100%;
-      background: linear-gradient(90deg, #4f4fcd, #6e5494);
+      background: linear-gradient(90deg, var(--profile-primary), var(--profile-secondary));
       border-radius: 3px;
+      width: 0;
+      transition: width 1s ease-out;
     }
 
-    /* IDIOMAS */
-    .languages-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    /* SEÇÃO DE IDIOMAS COM ROSCAS */
+    .languages-section {
+      background-color: var(--profile-dark);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--profile-border);
+      backdrop-filter: blur(5px);
     }
 
-    /* COMPLEMENTARES */
-    .complementary-list {
-      padding-left: 20px;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .languages-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .language-item {
+      background-color: var(--profile-card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--profile-primary);
+      text-align: center;
+    }
+
+    .language-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--profile-primary);
+    }
+
+    .language-level {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .donut-chart {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .donut-segment {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip: rect(0, 100px, 100px, 50px);
+      border-radius: 50%;
+    }
+
+    .donut-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--profile-card-bg);
+      border: 10px solid #303031;
+    }
+
+    .donut-fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 10px solid transparent;
+      clip: rect(0, 50px, 100px, 0);
+      transition: transform 1s ease-out;
+    }
+
+    /* CORES DAS ROSCAS BASEADAS NO NÍVEL */
+    .donut-fill[data-level="basico"] {
+      border-color: var(--profile-primary);
+      transform: rotate(108deg); /* 30% de 360 */
+    }
+
+    .donut-fill[data-level="intermediario"] {
+      border-color: var(--profile-primary);
+      transform: rotate(234deg); /* 65% de 360 */
+    }
+
+    .donut-fill[data-level="avancado"] {
+      border-color: var(--profile-primary);
+      transform: rotate(324deg); /* 90% de 360 */
+    }
+
+    .donut-fill[data-level="fluente"],
+    .donut-fill[data-level="nativo"] {
+      border-color: var(--profile-primary);
+      transform: rotate(360deg); /* 100% */
+    }
+
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--profile-border);
+    }
+
+    /* TÍTULOS PRINCIPAIS */
+    #profile-container h1 {
+      color: var(--profile-primary);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    #profile-container h2 {
+      color: var(--text);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .technologies-container {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        padding-top: 15px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .gitIcon.desktop-only {
+        display: none;
+      }
+
+      .gitIcon.mobile-only {
+        display: block;
+      }
+
       .profile-top-section {
         flex-direction: column;
         align-items: center;
@@ -213,6 +579,47 @@
       
       .profile-links {
         justify-content: center;
+      }
+
+      #profile-container h1 {
+        font-size: 2rem;
+      }
+
+      #profile-container h2 {
+        font-size: 1.2rem;
+      }
+
+      .education-experience-section,
+      .technologies-section,
+      .languages-section {
+        padding: 20px;
+      }
+
+      .technologies-container,
+      .languages-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .personal-info,
+      .complementary-section {
+        padding: 15px;
+      }
+
+      .profile-section h2,
+      .technology-category h3 {
+        font-size: 1.3rem;
+      }
+
+      .technologies-container,
+      .languages-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -289,28 +696,31 @@
         const enderecoStr = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.municipio}/${endereco.UF}`;
         
         container.innerHTML = `
-          <section class="profile-top-section">
-            <div class="profile-photo-container">
-              <img src="${profile.photo}" class="profile-photo" alt="Foto de ${profile.nome}" loading="lazy">
-              
-              <div class="personal-info">
-                <div class="personal-info-item">
-                  <i class="fas fa-user"></i>
-                  <span>${profile.infos.idade} anos</span>
-                </div>
-                <div class="personal-info-item">
-                  <i class="fas fa-passport"></i>
-                  <span>${profile.infos.nacionalidade}</span>
-                </div>
-                <div class="personal-info-item">
-                  <i class="fas fa-heart"></i>
-                  <span>${profile.infos["estado-civil"]}</span>
-                </div>
-                <div class="personal-info-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>${enderecoStr}</span>
-                </div>
-                 <div class="profile-links">
+        <h1 class="animate__animated animate__fadeIn">${profile.nome}</h1>
+        <h2 class="animate__animated animate__fadeIn animate__delay-1s">${profile.objetivo}</h2>
+        
+        <section class="profile-top-section">
+          <div class="profile-photo-container animate__animated animate__fadeInLeft">
+            <img src="${profile.photo}" class="profile-photo" alt="Foto de ${profile.nome}" loading="lazy">
+            
+            <div class="personal-info">
+              <div class="personal-info-item">
+                <i class="fas fa-user"></i>
+                <span>${profile.infos.idade} anos</span>
+              </div>
+              <div class="personal-info-item">
+                <i class="fas fa-passport"></i>
+                <span>${profile.infos.nacionalidade}</span>
+              </div>
+              <div class="personal-info-item">
+                <i class="fas fa-heart"></i>
+                <span>${profile.infos["estado-civil"]}</span>
+              </div>
+              <div class="personal-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${enderecoStr}</span>
+              </div>
+              <div class="profile-links">
                 <a href="${profile.links.linkedin}" target="_blank" aria-label="LinkedIn">
                   <i class="fab fa-linkedin"></i>
                 </a>
@@ -324,54 +734,77 @@
                   <i class="fab fa-whatsapp"></i>
                 </a>
               </div>
+            </div>
+          </div>
+          
+          <div class="profile-content animate__animated animate__fadeInRight">
+            <p class="profile-qualifications">${profile.qualificacoes}</p>
+            
+            <div class="complementary-section animate__animated animate__fadeInUp">
+              <h3><i class="fas fa-certificate"></i> Atividades Complementares</h3>
+              <ul class="complementary-list">
+                ${profile.complementares.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO DE FORMAÇÃO E EXPERIÊNCIA -->
+        <section class="education-experience-section animate__animated animate__fadeInUp">
+          <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+          <div class="education-list">
+            ${renderEducation(profile.formacao)}
+          </div>
+          
+          <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+          <div class="experiences-list">
+            ${renderExperiences(profile.experiencia)}
+          </div>
+        </section>
+
+        <!-- SEÇÃO DE TECNOLOGIAS -->
+        <section class="technologies-section animate__animated animate__fadeInUp animate__delay-1s">
+          <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+          <div class="technologies-container">
+            <!-- COLUNA 1 - DESENVOLVIMENTO -->
+            <div class="technology-category">
+              <h3>Desenvolvimento</h3>
+              <div class="skills-list">
+                ${renderSkillsGroup(profile.tecnologias, ['python', 'Java', 'HTML', 'CSS', 'Javascript'])}
               </div>
             </div>
             
-            <div class="profile-content">
-                <h1>${profile.nome}</h1>
-                <h2>${profile.objetivo}</h2>
-                <p class="profile-qualifications">${profile.qualificacoes}</p>
+            <!-- COLUNA 2 - BANCO DE DADOS -->
+            <div class="technology-category">
+              <h3>Banco de Dados</h3>
+              <div class="skills-list">
+                ${renderSkillsGroup(profile.tecnologias, ['MySQL', 'mongo'])}
+              </div>
             </div>
-          </section>
-
-          <section class="profile-section">
-            <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
-            <div class="experiences-list">
-              ${renderExperiences(profile.experiencia)}
+            
+            <!-- COLUNA 3 - FERRAMENTAS -->
+            <div class="technology-category">
+              <h3>Ferramentas</h3>
+              <div class="skills-list">
+                ${renderSkillsGroup(profile.tecnologias, ['excel', 'word', 'pbi'])}
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section class="profile-section">
-            <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
-            <div class="education-list">
-              ${renderEducation(profile.formacao)}
-            </div>
-          </section>
-
-          <section class="profile-section">
-            <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
-            <div class="skills-categories">
-              ${renderSkillCategories(profile.tecnologias)}
-            </div>
-          </section>
-
-          <section class="profile-section">
-            <h2><i class="fas fa-language"></i> Idiomas</h2>
-            <div class="languages-list">
-              ${renderLanguages(profile.idiomas)}
-            </div>
-          </section>
-
-          <section class="profile-section">
-            <h2><i class="fas fa-certificate"></i> Atividades Complementares</h2>
-            <ul class="complementary-list">
-              ${profile.complementares.map(item => `<li>${item}</li>`).join('')}
-            </ul>
-          </section>
+        <!-- SEÇÃO DE IDIOMAS COM ROSCAS -->
+        <section class="languages-section animate__animated animate__fadeInUp animate__delay-2s">
+          <h2><i class="fas fa-language"></i> Idiomas</h2>
+          <div class="languages-container">
+            ${renderLanguages(profile.idiomas)}
+          </div>
+        </section>
         `;
 
         // Anima as barras de progresso
-        animateSkillBars();
+        setTimeout(() => {
+          animateSkillBars();
+        }, 2500);
       }
 
       function renderExperiences(experiences) {
@@ -399,29 +832,6 @@
         `;
       }
 
-      function renderSkillCategories(technologies) {
-        return `
-          <div class="skill-category">
-            <h3>Desenvolvimento</h3>
-            <div class="skills-list">
-              ${renderSkillsGroup(technologies, ['python', 'Java', 'HTML', 'CSS', 'Javascript', 'MySQL', 'mongo'])}
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Microsoft</h3>
-            <div class="skills-list">
-              ${renderSkillsGroup(technologies, ['excel', 'word', 'pbi'])}
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Adobe</h3>
-            <div class="skills-list">
-              ${renderSkillsGroup(technologies, ['indesign', 'photoshop', 'illustrator', 'after', 'premiere'])}
-            </div>
-          </div>
-        `;
-      }
-
       function renderSkillsGroup(skillsObj, skillKeys) {
         const skillsArray = skillKeys.map(key => skillsObj[key]).filter(Boolean);
         
@@ -443,13 +853,12 @@
         
         return languagesArray.map(lang => `
           <div class="language-item">
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">${lang.titulo}</span>
-                <span class="skill-level">${translateLevel(lang.nivel)}</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="${lang.nivel.toLowerCase()}"></div>
+            <div class="language-name">${lang.titulo}</div>
+            <div class="language-level">${translateLevel(lang.nivel)}</div>
+            <div class="donut-chart">
+              <div class="donut-background"></div>
+              <div class="donut-segment">
+                <div class="donut-fill" data-level="${lang.nivel.toLowerCase()}"></div>
               </div>
             </div>
           </div>
@@ -460,7 +869,8 @@
         const progressBars = document.querySelectorAll('.skill-progress');
         progressBars.forEach(bar => {
           const level = bar.getAttribute('data-level');
-          bar.style.width = getProgressWidth(level);
+          const width = getProgressWidth(level);
+          bar.style.width = width;
         });
       }
 
@@ -468,7 +878,9 @@
         const levels = {
           'basico': 'Básico',
           'intermediario': 'Intermediário',
-          'avancado': 'Avançado'
+          'avancado': 'Avançado',
+          'fluente': 'Fluente',
+          'nativo': 'Nativo'
         };
         return levels[level.toLowerCase()] || level;
       }

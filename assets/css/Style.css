@@ -203,3 +203,28 @@
       font-size: calc(var(--h1-size) * 0.9);
     }
   }
+
+  /* Estilo do botão de download */
+.btn-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;  /* Tamanho proporcional aos links de navegação */
+  height: 32px;
+  color: white;  /* Cor branca */
+  text-decoration: none;
+  font-size: 1.2rem;  /* Ajuste o tamanho do ícone */
+  border-radius: 50%;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+/* Efeito de hover */
+.btn-download:hover {
+  color: #0073e6;
+}
+
+/* Estilo do ícone */
+.btn-download i {
+  margin: 0;
+}

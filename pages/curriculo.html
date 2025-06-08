@@ -6,6 +6,8 @@
   <title>Perfil Profissional - Enrico Migliorini</title>
   <link rel="stylesheet" href="../assets/css/Style.css"/>
   <link rel="stylesheet" href="../assets/css/ProfileStyle.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   
 </head>
 <body>
@@ -18,22 +20,25 @@
             </button>
         </div>
         
-        <div class="gitIcon desktop-only">
-            <a href="https://github.com/EnricoMig" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
+        <div class="download desktop-only">
+          <a href="../assets/files/Enrico_Curriculo.pdf"
+             download="Enrico_Curriculo.pdf"
+             class="btn-download"
+             aria-label="Baixar Currículo">
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </a>
         </div>
         
         <div class="nav-links" id="navLinks">
-            <a href="pages/curriculo.html">Currículo</a>
+            <a href="curriculo.html">Currículo</a>
             <a href="../index.html">Portfólio</a>
            <!-- <a href="#">Contato</a> -->
             
-            <div class="gitIcon mobile-only">
-                <a href="https://github.com/EnricoMig" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
+           <div class="download mobile-only">
+            <a href="../assets/files/curriculo.pdf" download="Curriculo_Enrico_Migliorini.pdf" class="btn-download" aria-label="Baixar Currículo">
+              <i class="fa-solid fa-file-arrow-down"></i>
+            </a>
+          </div>
         </div>
     </div>
 </header>
@@ -80,8 +85,10 @@
     <span>©EnricoDev - Portifolio Pessoal 2025</span>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../assets/js/profile.js"></script>
+  <script src="../assets/js/Download.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://kit.fontawesome.com/YOUR-KIT.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

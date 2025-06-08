@@ -74,73 +74,77 @@
             },
             "tecnologias":{
                 "python":{
+                    "pacote":"Programação",
                     "titulo":"Python",
                     "nivel":"Basico"
                 },
                 "Java":{
+                    "pacote":"Programação",
                     "titulo":"Java",
                     "nivel":"Intermediario"
                 },
                 "HTML":{
-                    "pacote":"WEB",
+                    "pacote":"Programação",
                     "titulo":"HTML",
                     "nivel":"Intermediario"
                 },
                 "CSS":{
-                    "pacote":"WEB",
+                    "pacote":"Programação",
                     "titulo":"CSS",
                     "nivel":"Basico"
                 },
                 "Javascript":{
-                    "pacote":"WEB",
+                    "pacote":"Programação",
                     "titulo":"Javascript",
                     "nivel":"Basico"
                 },
                 "MySQL":{
+                    "pacote":"Programação",
                     "titulo":"MySQL",
                     "nivel":"Basico"
                 },
                 "mongo":{
+                    "pacote":"Programação",
                     "titulo":"Mongo DB",
                     "nivel":"Intermediario"
                 },
                 "excel":{
-                    "pacote":"Microsoft",
+                    "pacote":"Escritorio",
                     "titulo":"Excel",
                     "nivel":"Basico"
                 },
                 "word":{
-                    "pacote":"Microsoft",
+                    "pacote":"Escritorio",
                     "titulo":"Word",
                     "nivel":"Basico"
                 },
                 "pbi":{
-                    "pacote":"Microsoft",
+                    "pacote":"Escritorio",
                     "titulo":"Power Bi",
                     "nivel":"Avancado"
                 },
                 "indesign":{
-                    "pacote":"Adobe",
+                    "pacote":"Design",
                     "titulo":"InDesign",
                     "nivel":"Intermediario"
                 },
                 "photoshop":{
-                    "pacote":"Adobe",
+                    "pacote":"Design",
                     "titulo":"Photoshop",
                     "nivel":"Intermediario"
                 },
                 "illustrator":{
-                    "pacote":"Adobe",
+                    "pacote":"Design",
                     "titulo":"Illustrator",
                     "nivel":"Intermediario"
                 },
                 "after":{
-                    "pacote":"Adobe",
+                    "pacote":"Design",
                     "titulo":"After Effects",
                     "nivel":"Basico"
                 },
                 "premiere":{
-                    "pacote":"Adobe",
+                    "pacote":"Design",
                     "titulo":"Premiere Pro",
                     "nivel":"Basico"
                 }

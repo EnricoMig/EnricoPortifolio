@@ -5,78 +5,14 @@
   <title>Perfil - Enrico Migliorini</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/Style.css">
-  <link rel="stylesheet" href="../assets/css/SobreStyle.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/Style.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/SobreStyle.css">
   <style>
-    
-    .gitIcon {
-      text-align: center;
+    /* Sobrescreve o estilo problemático */
+    #profile-container .profile-section {
+        display: block !important;
+        align-items: stretch !important;
     }
-
-    .gitIcon a {
-      font-size: 1.6rem;
-      color: white;
-      transition: all 0.3s ease;
-    }
-
-    .gitIcon a:hover {
-      color: #6e5494;
-      transform: scale(1.1);
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.3rem 0.6rem;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-      border-radius: 10px;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 0 2px rgba(110, 84, 148, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .mobile-menu-button {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-left: auto;
-    }
-
-    footer {
-      background-color: #19191a;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      width: 100%;
-      border-top: 1px solid #34495e;
-    }
-
-    /* ESTILOS DO PERFIL */
-    #profile-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
     .profile-top-section {
       display: flex;
       flex-wrap: wrap;
@@ -118,27 +54,9 @@
       color: #e0e0e0;
     }
 
-    .personal-info-item:last-child {
-      margin-bottom: 0;
-    }
-
     .profile-content {
       flex: 1;
       min-width: 300px;
-    }
-
-    .profile-title {
-      font-family: 'Audiowide', cursive;
-      font-size: 2.5rem;
-      color: #4f4fcd;
-      margin: 0 0 10px 0;
-    }
-
-    .profile-subtitle {
-      font-family: 'Audiowide', cursive;
-      font-size: 1.5rem;
-      color: #6e5494;
-      margin: 0 0 20px 0;
     }
 
     .profile-qualifications {
@@ -159,11 +77,6 @@
       transition: all 0.3s;
     }
 
-    .profile-links a:hover {
-      color: #6e5494;
-      transform: translateY(-3px);
-    }
-
     .profile-section {
       background-color: rgba(25, 25, 26, 0.7);
       border-radius: 10px;
@@ -172,24 +85,9 @@
       border: 1px solid #34495e;
     }
 
-    .profile-section h2 {
-      font-family: 'Audiowide', cursive;
-      color: #4f4fcd;
-      margin-top: 0;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.8rem;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #4f4fcd;
-    }
+ 
 
-    .profile-section h2 i {
-      font-size: 1.5rem;
-    }
-
-    /* EXPERIÊNCIAS - LAYOUT VERTICAL CORRIGIDO */
+    /* EXPERIÊNCIAS - LAYOUT VERTICAL */
     .experiences-list {
       display: flex;
       flex-direction: column;
@@ -225,12 +123,6 @@
       display: block;
     }
 
-    .experience-description {
-      color: #e0e0e0;
-      line-height: 1.6;
-      margin: 0;
-    }
-
     /* FORMAÇÃO ACADÊMICA */
     .education-list {
       display: flex;
@@ -243,23 +135,6 @@
       padding: 20px;
       border-radius: 8px;
       border-left: 4px solid #4f4fcd;
-    }
-
-    .education-item h3 {
-      margin: 0 0 5px;
-      font-size: 1.3rem;
-      color: #e0e0e0;
-    }
-
-    .institution {
-      font-weight: 500;
-      color: #b8b8b8;
-      font-size: 1rem;
-    }
-
-    .period {
-      color: #b8b8b8;
-      font-size: 0.9rem;
     }
 
     /* HABILIDADES TÉCNICAS */
@@ -276,14 +151,6 @@
       border-left: 4px solid #4f4fcd;
     }
 
-    .skill-category h3 {
-      margin: 0 0 15px;
-      font-size: 1.3rem;
-      color: #e0e0e0;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #34495e;
-    }
-
     .skills-list {
       display: flex;
       flex-direction: column;
@@ -298,17 +165,6 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 5px;
-    }
-
-    .skill-name {
-      font-weight: bold;
-      color: #e0e0e0;
-      font-size: 0.95rem;
-    }
-
-    .skill-level {
-      color: #b8b8b8;
-      font-size: 0.85rem;
     }
 
     .skill-bar {
@@ -331,14 +187,7 @@
       gap: 15px;
     }
 
-    .language-item {
-      background-color: rgba(48, 48, 49, 0.5);
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid #4f4fcd;
-    }
-
-    /* ATIVIDADES COMPLEMENTARES */
+    /* COMPLEMENTARES */
     .complementary-list {
       padding-left: 20px;
       margin: 0;
@@ -347,58 +196,15 @@
       gap: 10px;
     }
 
-    .complementary-list li {
-      line-height: 1.6;
-      color: #e0e0e0;
-      font-size: 0.95rem;
-    }
-
-    /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-      :root {
-        --base-size: 0.9rem;
-        --title-ratio: 1.2;
-      }
-
-      .header-content {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .logo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-      }
-
-      .mobile-menu-button {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.7rem;
-        padding-top: 1rem;
-        width: 100%;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
       .profile-top-section {
         flex-direction: column;
         align-items: center;
       }
       
-      .profile-photo-container {
-        flex: 0 0 auto;
-        width: 100%;
-        align-items: center;
+      .profile-photo {
+        width: 220px;
+        height: 220px;
       }
       
       .profile-content {
@@ -407,50 +213,6 @@
       
       .profile-links {
         justify-content: center;
-      }
-      
-      .profile-section h2 {
-        font-size: 1.6rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      :root {
-        --base-size: 0.8rem;
-      }
-
-      #profile-container {
-        padding: 10px;
-      }
-
-      .profile-photo {
-        width: 220px;
-        height: 220px;
-      }
-
-      .profile-title {
-        font-size: 2rem;
-      }
-
-      .profile-subtitle {
-        font-size: 1.3rem;
-      }
-
-      .profile-section {
-        padding: 20px;
-      }
-
-      .profile-section h2 {
-        font-size: 1.4rem;
-      }
-
-      .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .experience-period {
-        margin-top: -5px;
       }
     }
   </style>
@@ -528,57 +290,56 @@
         
         container.innerHTML = `
           <section class="profile-top-section">
-                <div class="profile-photo-container">
-                    <img src="${profile.photo}" class="profile-photo" alt="Foto de ${profile.nome}" loading="lazy">
+            <div class="profile-photo-container">
+              <img src="${profile.photo}" class="profile-photo" alt="Foto de ${profile.nome}" loading="lazy">
               
-                    <div class="personal-info">
-                        <div class="personal-info-item">
-                            <i class="fas fa-user"></i>
-                            <span>${profile.infos.idade} anos</span>
-                        </div>
-                        <div class="personal-info-item">
-                            <i class="fas fa-passport"></i>
-                            <span>${profile.infos.nacionalidade}</span>
-                        </div>
-                        <div class="personal-info-item">
-                            <i class="fas fa-heart"></i>
-                            <span>${profile.infos["estado-civil"]}</span>
-                        </div>
-                        <div class="personal-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>${enderecoStr}</span>
-                        </div>
-                        <div class="profile-links">
-                            <a href="${profile.links.linkedin}" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="${profile.links.github}" target="_blank" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="mailto:${profile.links.email}" aria-label="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="${profile.links.whatsapp}" target="_blank" aria-label="WhatsApp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
+              <div class="personal-info">
+                <div class="personal-info-item">
+                  <i class="fas fa-user"></i>
+                  <span>${profile.infos.idade} anos</span>
                 </div>
+                <div class="personal-info-item">
+                  <i class="fas fa-passport"></i>
+                  <span>${profile.infos.nacionalidade}</span>
+                </div>
+                <div class="personal-info-item">
+                  <i class="fas fa-heart"></i>
+                  <span>${profile.infos["estado-civil"]}</span>
+                </div>
+                <div class="personal-info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>${enderecoStr}</span>
+                </div>
+                 <div class="profile-links">
+                <a href="${profile.links.linkedin}" target="_blank" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="${profile.links.github}" target="_blank" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:${profile.links.email}" aria-label="Email">
+                  <i class="fas fa-envelope"></i>
+                </a>
+                <a href="${profile.links.whatsapp}" target="_blank" aria-label="WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+              </div>
+            </div>
             
-                <div class="profile-content">
-                    <h1>${profile.nome}</h1>
-                    <h2>${profile.objetivo}</h2>
-                    <p class="profile-qualifications">${profile.qualificacoes}</p>
-                </div>
-                <div class="profile-section">
-                    <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
-                    <div class="experiences-list">
-                        ${renderExperiences(profile.experiencia)}
-                    </div>
-                </div>
+            <div class="profile-content">
+                <h1>${profile.nome}</h1>
+                <h2>${profile.objetivo}</h2>
+                <p class="profile-qualifications">${profile.qualificacoes}</p>
+            </div>
           </section>
 
-          
+          <section class="profile-section">
+            <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+            <div class="experiences-list">
+              ${renderExperiences(profile.experiencia)}
+            </div>
+          </section>
 
           <section class="profile-section">
             <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
@@ -608,14 +369,15 @@
             </ul>
           </section>
         `;
+
         // Anima as barras de progresso
         animateSkillBars();
       }
 
       function renderExperiences(experiences) {
         const expArray = Object.values(experiences)
-          .filter(exp => exp.id !== 0) // Remove o template
-          .sort((a, b) => b.id - a.id); // Ordena do mais recente
+          .filter(exp => exp.id !== 0)
+          .sort((a, b) => b.id - a.id);
         
         return expArray.map(exp => `
           <div class="experience-item">

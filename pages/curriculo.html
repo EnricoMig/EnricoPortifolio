@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/Style.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/SobreStyle.css">
   <style>
     /* SISTEMA DE CORES */
     :root {
@@ -27,6 +28,8 @@
       background-color: #121212;
       color: var(--text);
       line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
 
     .page-wrapper {
@@ -348,12 +351,17 @@
       border: 1px solid var(--profile-border);
       backdrop-filter: blur(5px);
       margin-bottom: 30px;
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-right: -20px;
     }
 
     .technologies-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .technology-category {
@@ -408,12 +416,17 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       border: 1px solid var(--profile-border);
       backdrop-filter: blur(5px);
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-right: -20px;
     }
 
     .languages-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .language-item {
@@ -438,16 +451,16 @@
 
     .donut-chart {
       position: relative;
-      width: 100px;
-      height: 100px;
-      margin: 0 auto;
+      width: 120px;
+      height: 120px;
+      margin: 15px auto;
     }
 
     .donut-segment {
       position: absolute;
       width: 100%;
       height: 100%;
-      clip: rect(0, 100px, 100px, 50px);
+      clip: rect(0, 120px, 120px, 60px);
       border-radius: 50%;
     }
 
@@ -457,7 +470,7 @@
       height: 100%;
       border-radius: 50%;
       background: var(--profile-card-bg);
-      border: 10px solid #303031;
+      border: 12px solid #303031;
     }
 
     .donut-fill {
@@ -465,31 +478,53 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 10px solid transparent;
-      clip: rect(0, 50px, 100px, 0);
-      transition: transform 1s ease-out;
+      border: 12px solid transparent;
+      clip: rect(0, 60px, 120px, 0);
+      animation: fillAnimation 1.5s ease-out forwards;
+    }
+
+    .donut-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-weight: bold;
+      color: var(--profile-primary);
+    }
+
+    .donut-percent {
+      font-size: 1.2rem;
+      display: block;
     }
 
     /* CORES DAS ROSCAS BASEADAS NO NÍVEL */
     .donut-fill[data-level="basico"] {
       border-color: var(--profile-primary);
-      transform: rotate(108deg); /* 30% de 360 */
+      --rotation: 108deg; /* 30% de 360 */
     }
 
-    .donut-fill[data-level="intermediario"] {
+    .donut-fill[data-level="intermediario"],
+    .donut-fill[data-level="intermediário"] {
       border-color: var(--profile-primary);
-      transform: rotate(234deg); /* 65% de 360 */
+      --rotation: 234deg; /* 65% de 360 */
     }
 
-    .donut-fill[data-level="avancado"] {
+    .donut-fill[data-level="avancado"],
+    .donut-fill[data-level="avançado"] {
       border-color: var(--profile-primary);
-      transform: rotate(324deg); /* 90% de 360 */
+      --rotation: 324deg; /* 90% de 360 */
     }
 
     .donut-fill[data-level="fluente"],
     .donut-fill[data-level="nativo"] {
       border-color: var(--profile-primary);
-      transform: rotate(360deg); /* 100% */
+      --rotation: 360deg; /* 100% */
+    }
+
+    @keyframes fillAnimation {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(var(--rotation)); }
     }
 
     /* RODAPÉ */
@@ -520,7 +555,8 @@
 
     /* RESPONSIVIDADE */
     @media (max-width: 1024px) {
-      .technologies-container {
+      .technologies-container,
+      .languages-container {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -597,7 +633,7 @@
 
       .technologies-container,
       .languages-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
     }
 
@@ -615,11 +651,6 @@
       .profile-section h2,
       .technology-category h3 {
         font-size: 1.3rem;
-      }
-
-      .technologies-container,
-      .languages-container {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -851,18 +882,56 @@
       function renderLanguages(languages) {
         const languagesArray = Object.values(languages);
         
-        return languagesArray.map(lang => `
-          <div class="language-item">
-            <div class="language-name">${lang.titulo}</div>
-            <div class="language-level">${translateLevel(lang.nivel)}</div>
-            <div class="donut-chart">
-              <div class="donut-background"></div>
-              <div class="donut-segment">
-                <div class="donut-fill" data-level="${lang.nivel.toLowerCase()}"></div>
+        return languagesArray.map(lang => {
+          const level = lang.nivel.toLowerCase();
+          const percent = getPercentFromLevel(level);
+          
+          return `
+            <div class="language-item">
+              <div class="language-name">${lang.titulo}</div>
+              <div class="language-level">${translateLevel(lang.nivel)}</div>
+              <div class="donut-chart">
+                <div class="donut-background"></div>
+                <div class="donut-segment">
+                  <div class="donut-fill" 
+                       data-level="${level}" 
+                       style="--rotation: ${getRotationFromLevel(level)}"></div>
+                </div>
+                <div class="donut-info">
+                  <span class="donut-percent">${percent}%</span>
+                </div>
               </div>
             </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
+      }
+
+      function getRotationFromLevel(level) {
+        const levels = {
+          'basico': '108deg',
+          'básico': '108deg',
+          'intermediario': '234deg',
+          'intermediário': '234deg',
+          'avancado': '324deg',
+          'avançado': '324deg',
+          'fluente': '360deg',
+          'nativo': '360deg'
+        };
+        return levels[level] || '180deg';
+      }
+
+      function getPercentFromLevel(level) {
+        const levels = {
+          'basico': 30,
+          'básico': 30,
+          'intermediario': 65,
+          'intermediário': 65,
+          'avancado': 90,
+          'avançado': 90,
+          'fluente': 100,
+          'nativo': 100
+        };
+        return levels[level] || 50;
       }
 
       function animateSkillBars() {

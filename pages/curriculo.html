@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/Style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/SobreStyle.css">
   <style>
     /* SISTEMA DE CORES */
     :root {
@@ -22,20 +20,42 @@
       --dark: #19191a;
     }
 
-    /* ESTRUTURA PRINCIPAL */
+    /* RESET E ESTILOS BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: var(--text);
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ESTRUTURA PRINCIPAL */
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* CABEÇALHO */
@@ -122,6 +142,7 @@
     /* CONTEÚDO PRINCIPAL */
     main {
       padding: 40px 0;
+      flex: 1;
     }
 
     #profile-container {
@@ -351,9 +372,6 @@
       border: 1px solid var(--profile-border);
       backdrop-filter: blur(5px);
       margin-bottom: 30px;
-      width: calc(100% + 40px);
-      margin-left: -20px;
-      margin-right: -20px;
     }
 
     .technologies-container {
@@ -408,7 +426,7 @@
       transition: width 1s ease-out;
     }
 
-    /* SEÇÃO DE IDIOMAS COM ROSCAS */
+    /* SEÇÃO DE IDIOMAS */
     .languages-section {
       background-color: var(--profile-dark);
       border-radius: 10px;
@@ -416,9 +434,6 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       border: 1px solid var(--profile-border);
       backdrop-filter: blur(5px);
-      width: calc(100% + 40px);
-      margin-left: -20px;
-      margin-right: -20px;
     }
 
     .languages-container {
@@ -704,20 +719,126 @@
         navLinks.classList.toggle('active');
       });
 
-      // Carrega o perfil
-      fetch('../assets/data/profile.json')
-        .then(response => {
-          if (!response.ok) throw new Error('Erro ao carregar dados');
-          return response.json();
-        })
-        .then(data => {
-          const profile = data.profile[0];
-          renderProfile(profile);
-        })
-        .catch(err => {
-          console.error('Erro:', err);
-          showError();
-        });
+      // Dados do perfil (simulados para exemplo)
+      const profileData = {
+        "profile": [
+          {
+            "nome": "Enrico Migliorini",
+            "objetivo": "Desenvolvedor Front-end | HTML/CSS/JavaScript",
+            "photo": "https://via.placeholder.com/280",
+            "qualificacoes": "Desenvolvedor com experiência em criação de interfaces responsivas e acessíveis. Especializado em React e Vue.js com 3 anos de experiência profissional.",
+            "infos": {
+              "idade": 28,
+              "nacionalidade": "Brasileiro",
+              "estado-civil": "Solteiro",
+              "endereco": {
+                "logradouro": "Rua Exemplo",
+                "numero": "123",
+                "bairro": "Centro",
+                "municipio": "São Paulo",
+                "UF": "SP"
+              }
+            },
+            "links": {
+              "linkedin": "https://linkedin.com/in/exemplo",
+              "github": "https://github.com/EnricoMig",
+              "email": "contato@enricomigliorini.com",
+              "whatsapp": "https://wa.me/5511999999999"
+            },
+            "complementares": [
+              "Certificado em UX Design",
+              "Curso avançado de JavaScript",
+              "Participação em hackathons"
+            ],
+            "formacao": {
+              "graduacao": {
+                "curso": "Análise e Desenvolvimento de Sistemas",
+                "instituicao": "Universidade Exemplo",
+                "inicio": "2018",
+                "termino": "2021"
+              }
+            },
+            "experiencia": {
+              "1": {
+                "id": 1,
+                "nome": "Empresa Tech Ltda",
+                "inicio": "Jan 2021",
+                "termino": "Presente",
+                "ocupacao": "Desenvolvedor Front-end Pleno",
+                "descricao": "Desenvolvimento de interfaces web com React.js e integração com APIs REST."
+              },
+              "2": {
+                "id": 2,
+                "nome": "Startup Inovação",
+                "inicio": "Mar 2019",
+                "termino": "Dez 2020",
+                "ocupacao": "Desenvolvedor Front-end Júnior",
+                "descricao": "Implementação de layouts responsivos e componentes reutilizáveis em Vue.js."
+              }
+            },
+            "tecnologias": {
+              "python": {
+                "titulo": "Python",
+                "nivel": "intermediario"
+              },
+              "Java": {
+                "titulo": "Java",
+                "nivel": "basico"
+              },
+              "HTML": {
+                "titulo": "HTML5",
+                "nivel": "avancado"
+              },
+              "CSS": {
+                "titulo": "CSS3",
+                "nivel": "avancado"
+              },
+              "Javascript": {
+                "titulo": "JavaScript",
+                "nivel": "avancado"
+              },
+              "MySQL": {
+                "titulo": "MySQL",
+                "nivel": "intermediario"
+              },
+              "mongo": {
+                "titulo": "MongoDB",
+                "nivel": "basico"
+              },
+              "excel": {
+                "titulo": "Excel",
+                "nivel": "avancado"
+              },
+              "word": {
+                "titulo": "Word",
+                "nivel": "intermediario"
+              },
+              "pbi": {
+                "titulo": "Power BI",
+                "nivel": "intermediario"
+              }
+            },
+            "idiomas": {
+              "ingles": {
+                "titulo": "Inglês",
+                "nivel": "intermediario"
+              },
+              "espanhol": {
+                "titulo": "Espanhol",
+                "nivel": "basico"
+              },
+              "portugues": {
+                "titulo": "Português",
+                "nivel": "nativo"
+              }
+            }
+          }
+        ]
+      };
+
+      // Renderiza o perfil com os dados
+      const profile = profileData.profile[0];
+      renderProfile(profile);
 
       function renderProfile(profile) {
         const container = document.getElementById('profile-container');
@@ -823,7 +944,7 @@
           </div>
         </section>
 
-        <!-- SEÇÃO DE IDIOMAS COM ROSCAS -->
+        <!-- SEÇÃO DE IDIOMAS -->
         <section class="languages-section animate__animated animate__fadeInUp animate__delay-2s">
           <h2><i class="fas fa-language"></i> Idiomas</h2>
           <div class="languages-container">

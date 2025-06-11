@@ -1,8 +1,8 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/curriculo", "destination": "pages/curriculo/index.html" },
-    { "source": "/projects", "destination": "pages/curriculo/projects.html" }
+    { "source": "/curriculo", "destination": "curriculo/index.html" },
+    { "source": "/projetos", "destination": "curriculo/index.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false

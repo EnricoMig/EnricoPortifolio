@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <p>${project.descricao}</p>
                 <div class="card-actions">
-                    <a href="pages/projects.html?id=${project.id}" class="card-button">
+                    <a href="curriculo/projects.html?id=${project.id}" class="card-button">
                         Ver Detalhes <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -126,65 +126,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-// 7. Estilos mínimos necessários (adicione ao seu CSS principal)
-const projectStyles = document.createElement('style');
-projectStyles.textContent = `
-    .loading-state {
-        text-align: center;
-        padding: 2rem;
-        color: #4fd1c5;
-        font-size: 1.1rem;
-    }
-    
-    .project-card {
-        background: #2d3748;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .card-image-container {
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #1a202c;
-        overflow: hidden;
-    }
-    
-    .card-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-    
-    .card-image[src$=".svg"] {
-        object-fit: contain;
-        padding: 1rem;
-        width: 80%;
-        height: 80%;
-    }
-    
-    .project-card:hover .card-image {
-        transform: scale(1.05);
-    }
-    
-    .error-message {
-        text-align: center;
-        padding: 2rem;
-        color: #e53e3e;
-    }
-    
-    .retry-button {
-        background: #4fd1c5;
-        color: #1a202c;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        margin-top: 1rem;
-        cursor: pointer;
-    }
-`;
-document.head.appendChild(projectStyles);

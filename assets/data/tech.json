@@ -37,12 +37,22 @@
       },
       {
         "name": "GitHub",
-        "iconClass": "devicon-github-original",
+        "iconClass": "devicon-github-plain",
         "type": "devicon"
       },
       {
-        "name": "PowerBI",
-        "iconClass": "devicon-github-original",
+        "name": "Vercel",
+        "iconClass": "devicon-vercel-plain",
+        "type": "devicon"
+      },
+      {
+        "name": "Bash",
+        "iconClass": "devicon-bash-plain",
+        "type": "devicon"
+      },
+      {
+        "name": "Arduino",
+        "iconClass": "devicon-arduino-plain",
         "type": "devicon"
       },
       {

@@ -67,7 +67,8 @@
             "formacao":{
                 "graduacao":{
                     "instituicao":"Centro Universitario Senac",
-                    "curso":"Análise e Desenvolvimento de Sistemas (ADS)",
+                    "curso":"Análise e Desenvolvimento de Sistemas",
+                    "sigla": "(ADS)",
                     "inicio":"01/08/2022",
                     "termino":"30/07/2025"
                 }

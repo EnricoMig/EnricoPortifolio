@@ -9,6 +9,12 @@
 
   html, body {
     height: 100%;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
   }
   
   .page-wrapper {
@@ -24,10 +30,15 @@
   body {
     margin: 0;
     font-family: 'Space Mono', monospace;
-    background-color: #303031;
+    background-color: #2a2a2b;
     color: white;
     line-height: 1.6;
     padding-bottom: 80px;
+  }
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4 {
@@ -133,6 +144,14 @@
     width: 100%;
     border-top: 1px solid #34495e;
   }
+  
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* igual header */
+  }
+  
   
 
   /* Oculta no mobile */

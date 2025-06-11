@@ -17,6 +17,17 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+       section:not(#hero) {
+            background-color: #303031;  /* Fundo que destaca a "caixa" */
+            border-radius: 8px;          /* Borda arredondada para suavizar */
+            padding: 20px;               /* Espaço interno */
+            margin-bottom: 20px;         /* Espaço entre as seções */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Sombra sutil para dar profundidade */
+        }
+
+    </style>
+
 </head>
 <body>
     <header>
@@ -48,6 +59,7 @@
         </div>
     </header>
 
+   <main>
     <section id="hero">
         <h1 id="typing-text"></h1>
         <p id="typing-subtitle" class="hidden"></p>
@@ -66,25 +78,28 @@
                     </p>
                 </div>
             </div>
-
-            <div class="skills-container">
-                <h2>HABILIDADES</h2>
-                <div id="skillsTrack" class="skills-grid">
-                    <!-- As habilidades serão inseridas aqui via JavaScript -->
-                </div>
-            </div>
         </div>
     </section>
     
+    <section id ="Habilidades">
+        <div class="skills-container">
+            <h2>HABILIDADES</h2>
+            <div id="skillsTrack" class="skills-grid">
+                <!-- As habilidades serão inseridas aqui via JavaScript -->
+            </div>
+        </div>
+    </section>
     <section id="projetos">
         <h2>PROJETOS</h2>
         <div class="projetos-container" id="projetosContainer">
             <!-- Os cards serão gerados dinamicamente via JavaScript -->
         </div>
     </section>
+   </main>
 
     <footer>
-      <span>©EnricoDev - Portifolio Pessoal 2025</span>
+        <div class="footer-content"></div>
+        <span>©EnricoDev - Portifolio Pessoal 2025</span>
     </footer>
 
     <!-- Scripts -->

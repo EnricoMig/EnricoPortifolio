@@ -1,3 +1,9 @@
+h1, h2, h3, h4 {
+  font-family: 'Audiowide', monospace;
+  color: #4f4fcd;
+  margin-top: 0;
+}
+
 .container {
     max-width: 960px;
     margin: auto;
@@ -9,7 +15,7 @@
   .box-personal,
   .box-overview {
     padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #303031;
     border-radius: 6px;
   }
   .box-personal {
@@ -32,13 +38,6 @@
     font-size: 1.2rem;
     color: inherit;
   }
-  .box-overview h1 {
-    margin-bottom: 8px;
-  }
-  .box-overview h2 {
-    margin-bottom: 15px;
-    font-weight: normal;
-  }
   
   .main-box {
     grid-column: 1 / -1;
@@ -48,7 +47,7 @@
   }
   .section {
     padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #303031;
     border-radius: 6px;
   }
   .section-title {
@@ -68,7 +67,7 @@
   }
   .tech-bar {
     width: 100%;
-    background: #fff;
+    background: #3f3f40;
     height: 8px;
     border-radius: 4px;
     margin: 4px 0;
@@ -111,4 +110,10 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .destaque-recente {
+    font-weight: bold;
+    padding-left: 8px;
+  }
+  
   

@@ -1,13 +1,9 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/assets/.*",
-        "headers": {
-          "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "public, max-age=3600"
-        },
-        "continue": true
-      }
-    ]
-  }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/curriculo", "destination": "pages/curriculo/index.html" },
+    { "source": "/projects", "destination": "pages/curriculo/projects.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

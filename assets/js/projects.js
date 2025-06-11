@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <p>${project.descricao}</p>
                 <div class="card-actions">
-                    <a href="curriculo/projects.html?id=${project.id}" class="card-button">
+                    <a href="pages/projects/index.html?id=${project.id}" class="card-button">
                         Ver Detalhes <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
